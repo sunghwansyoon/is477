@@ -1,5 +1,5 @@
 # IS 477 - Data Management, Curation & Reproducibility
-Course Project
+
 
 ### Overview
 #### Describe the overall goal of your project.
