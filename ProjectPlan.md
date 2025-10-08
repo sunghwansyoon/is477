@@ -7,7 +7,6 @@
 ---
 
 ### Research Questions
-##### What is/are the question(s) you intend to address?
 
 This project will answer the following research questions:
 1. Are Chicago neighborhoods with higher counts of 311 sanitation complaints also more likely to have restaurants that received a fail for city food inspections?
@@ -22,7 +21,6 @@ This project will answer the following research questions:
 ---
 
 ### Datasets
-##### Identify and describe the datasets that you will use. You need to use at least two different datasets that need to be integrated.
   * Primary Dataset: Food Inspection
     * URL: https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5/about_data
     * Source: Chicago Data Portal - City of Chicago
@@ -44,9 +42,25 @@ This project will answer the following research questions:
     * Number of Rows: 12,700,000+
     * Columns: SR_Number, SR_Type, SR_Short_Code, Created_Department, Owner_Department, Status, Origin, Created Date, Last Modified Date, Closed Date, Street Address, City, State, Zip_Code, Street_Number, Street_Direction, Street_Name, Street_Type, Duplicate, Legacy_Record, Legacy_SR_Number, Parent_SR_Number,    Community_Area, Ward, Electrical_District, Electricity_Grid, Police_Sector, Police_District, Police_Beat, Precinct, Sanitation_Division_Days, Created_Hour, Created_Day_Of_Week, Created_Month, X_Coordinate, Y_Coordinate, Latitude, Longitude, Location
 
-    This dataset will serve as the secondary data of the project, reinforcing the context of our main Food Inspection data, 
+    This dataset will serve as the secondary data of the project, reinforcing the context of our main Food Inspection data. 
 
   By matching the location information available in both datasets, we can track foodservice establishments in Chicago that received food inspections from January 2019 to September 2025.
+
+  ##### Data lifecycle
+
+  This project will follow the data lifecycle discussed in class. So far, we have completed data acquisition section 
+
+  ##### Ethical data handling
+
+  The City of Chicago publicly releases both datasets under government data licenses. We will follow any restrictions set 
+
+  ##### Storage and organization
+
+  ##### Data integration and enrichment
+
+  ##### Data quality and cleaning
+
+  ##### Workflow automation and provenance
 
 ---
     
