@@ -51,16 +51,16 @@ This project will answer the following research questions:
 ---
     
 ### Timeline
-##### 
-1.) **Data collection and acquisition (10/06)** :Sean has selected the two datasets that are chosen for the course of the project. The primary datset will be Food Inspection where it describes the location of the resturaunt and when the inspection date took place. The secondary dataset will be 311 service Service Request where it gives the location of the where the request is.
-2.) **Storage and organization (xx/xx)**: FOr our data project, we would use a relational databse as our primary storage and organization strategy. This will allow our data to be tabluar format and within a database management system, ideally SQL. For the organization side, we will define a schma that specifies the structure of the table, specifically having primary keys and foreign keys. On the storage side we will save everything to our github page to have easy acess while having different file forms to seperate data.
-3.) **Extraction and Enrichment (xx/xx)**
-4.) **Data Integration (xx/xx)**
-5.)**Data Quality (xx/xx)**
-6.)**Data Cleaning (xx/xx)**
-7.)** Workflow automation and provenance (xx/xx)**
-8.)**Reproducibility and transparency (xx/xx)**
-9.)**Meta and Data Documentation (xx/xx)**
+
+* 1.) **Data collection and acquisition (10/06)**:Sean has selected the two datasets that are chosen for the course of the project. The primary datset will be Food Inspection where it describes the location of the resturaunt and when the inspection date took place. The secondary dataset will be 311 service Service Request where it gives the location of the where the request is.
+* 2.) **Storage and organization (xx/xx)**: For our data project, we would use a relational databse as our primary storage and organization strategy. This will allow our data to be tabluar format and within a database management system, ideally SQL. For the organization side, we will define a schma that specifies the structure of the table, specifically having primary keys and foreign keys. On the storage side we will save everything to our github page to have easy acess while having different file forms to seperate data.
+* 3.) **Extraction and Enrichment (xx/xx)**
+* 4.) **Data Integration (xx/xx)**
+* 5.)**Data Quality (xx/xx)**
+* 6.)**Data Cleaning (xx/xx)**
+* 7.)**Workflow automation and provenance (xx/xx)**
+* 8.)**Reproducibility and transparency (xx/xx)**
+* 9.)**Meta and Data Documentation (xx/xx)**
 ---
 
 ### Constraints
