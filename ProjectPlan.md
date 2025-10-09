@@ -23,6 +23,7 @@ This project will answer the following research questions:
 1. Are Chicago neighborhoods with higher counts of 311 sanitation complaints also more likely to have restaurants that received a fail for city food inspections?
 2. Does an increase in 311 sanitation reports precede or follow an increase in failure in food inspections?
 3. Are there specific facilities that are more sensitive to external sanitation compared to others?
+4. Is there specific neighborhood(s) that appear to have more external sanitation compared to others?
 
 ---
 
@@ -34,7 +35,6 @@ This project will answer the following research questions:
   * Nathan Diaz
     * Working on overall background research on the city of Chicago 311 calls and city inspection on resturants 
     * Co-working on data integration and cleaning, exploratory analysis, and visualization
-    *
 
 ---
 
@@ -89,33 +89,34 @@ This project will answer the following research questions:
 
 * 1.) **Data collection and acquisition (10/06)**:Sean has selected the two datasets that are chosen for the course of the project. The primary datset will be Food Inspection where it describes the location of the resturaunt and when the inspection date took place. The secondary dataset will be 311 service Service Request where it gives the location of the where the request is.
 
-* 2.) **Storage and organization (xx/xx)**: For our data project, we would use a relational databse as our primary storage and organization strategy. This will allow our data to be tabluar format and within a database management system, ideally SQL. For the organization side, we will define a schma that specifies the structure of the table, specifically having primary keys and foreign keys. On the storage side we will save everything to our github page to have easy acess while having different file forms to seperate data.
+* 2.) **Storage and organization (10/17)**: For our data project, we would use a relational databse as our primary storage and organization strategy. This will allow our data to be tabluar format and within a database management system, ideally SQL. For the organization side, we will define a schma that specifies the structure of the table, specifically having primary keys and foreign keys. On the storage side we will save everything to our github page to have easy acess while having different file forms to seperate data.
 
-* 3.) **Extraction and Enrichment (xx/xx)**: Although both of our datsets are form into structured data, Enrichment and Extraction of each datasets are important, for example:
+* 3.) **Extraction and Enrichment (10/24)**: Although both of our datsets are form into structured data, Enrichment and Extraction of each datasets are important, for example:
     * Extracting 311 calls that is relted to food or restraunt calls as we are comparing the 311 calls to the food inspection dataset
     * Extracting identical or similar close address from both datsets
     * Enrichment still applies as we can use the addresses or locations of inspections and 311s calls to see if the city of chicago is targeting a specific location.
      
-* 4.) **Data Integration (xx/xx)**: Data integration will be performed using shared spatial and temporal keys:
+* 4.) **Data Integration (10/31)**: Data integration will be performed using shared spatial and temporal keys:
     * Spatial key: ZIP code, Location (Latitude, Longitude)
     * Temporal key: Date of inspection, Date of 311 report 
     
     Using the DuckDB or Pandas library, we will perform a left join of the food inspection (primary) data with aggregated 311 (secondary) data, ensuring each inspection record includes contextual information about recent complaint activity within its area and timeframe.
   
-* 5.)**Data Quality (xx/xx)**: Despite the datasets being well-maintained, they are likely to have issues shared by municipal data:
+* 5.)**Data Quality (11/07)**: Despite the datasets being well-maintained, they are likely to have issues shared by municipal data:
     * Missing ZIP codes and addresses
     * Duplicate inspection IDs or 311 complaints
   
-* 6.)**Data Cleaning (xx/xx)**: Data cleaning will:
+* 6.)**Data Cleaning (11/14)**: Data cleaning will:
     * Remove duplicate records
     * Remove missing values in location columns
     * Convert data types if needed
   
-* 7.)**Workflow automation and provenance**(xx/xx): This process we will smoothly integrate our two clean datsets where we are able to answer our research questions. 
+* 7.)**Workflow automation and provenance(11/21)**: This process we will smoothly integrate our two clean datsets and have a built code where the code could have a new
+  category having a row categorize which part of Chicago the resturaunt is located. Example: Northside, southside, downtown, etc. At the same time having the data being automaticaly being cleaned.
   
-* 8.)**Reproducibility and transparency (xx/xx)**: By displaying our datset into python, where we are able to clean the dataset to adress our goals for data cleaning and data quality. 
+* 8.)**Reproducibility and transparency (11/28)**: Disclosing what are processed was and how we were able to clean the data.
   
-* 9.)**Meta and Data Documentation (xx/xx)**: Through our outisde research of meta and data documentation, we will achieve this by making sure the 
+* 9.)**Meta and Data Documentation (12/10)**: Giving background information of the data and idetifiying the variables and the variables that were useful to answering our research questions. 
 
 ---
 
