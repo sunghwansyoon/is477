@@ -84,23 +84,20 @@ This project will answer the following research questions:
 * 1.) **Data collection and acquisition (10/06)**:Sean has selected the two datasets that are chosen for the course of the project. The primary datset will be Food Inspection where it describes the location of the resturaunt and when the inspection date took place. The secondary dataset will be 311 service Service Request where it gives the location of the where the request is.
 * 2.) **Storage and organization (xx/xx)**: For our data project, we would use a relational databse as our primary storage and organization strategy. This will allow our data to be tabluar format and within a database management system, ideally SQL. For the organization side, we will define a schma that specifies the structure of the table, specifically having primary keys and foreign keys. On the storage side we will save everything to our github page to have easy acess while having different file forms to seperate data.
 * 3.) **Extraction and Enrichment (xx/xx)**: 
-* 4.) **Data Integration (xx/xx)**:
-    Data integration will be performed using shared spatial and temporal keys:
-      * Spatial key: ZIP code, Location (Latitude, Longitude)
-      * Temporal key: Date of inspection, Date of 311 report 
+* 4.) **Data Integration (xx/xx)**: Data integration will be performed using shared spatial and temporal keys:
+    * Spatial key: ZIP code, Location (Latitude, Longitude)
+    * Temporal key: Date of inspection, Date of 311 report 
     
     Using the DuckDB or Pandas library, we will perform a left join of the food inspection (primary) data with aggregated 311 (secondary) data, ensuring each inspection record includes contextual information about recent complaint activity within its area and timeframe.
   
-* 5.)**Data Quality (xx/xx)**:
-    Despite the datasets being well-maintained, they are likely to have issues shared by municipal data:
-       * Missing ZIP codes and addresses
-       * Duplicate inspection IDs or 311 complaints
+* 5.)**Data Quality (xx/xx)**: Despite the datasets being well-maintained, they are likely to have issues shared by municipal data:
+    * Missing ZIP codes and addresses
+    * Duplicate inspection IDs or 311 complaints
   
-* 6.)**Data Cleaning (xx/xx)**:
-    Data cleaning will:
-       * Remove duplicate records
-       * Remove missing values in location columns
-       * Convert data types if needed
+* 6.)**Data Cleaning (xx/xx)**: Data cleaning will:
+    * Remove duplicate records
+    * Remove missing values in location columns
+    * Convert data types if needed
   
 * 7.)**Workflow automation and provenance (xx/xx)**
 * 8.)**Reproducibility and transparency (xx/xx)**
