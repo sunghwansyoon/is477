@@ -88,11 +88,14 @@ This project will answer the following research questions:
 ### Timeline
 
 * 1.) **Data collection and acquisition (10/06)**:Sean has selected the two datasets that are chosen for the course of the project. The primary datset will be Food Inspection where it describes the location of the resturaunt and when the inspection date took place. The secondary dataset will be 311 service Service Request where it gives the location of the where the request is.
+
 * 2.) **Storage and organization (xx/xx)**: For our data project, we would use a relational databse as our primary storage and organization strategy. This will allow our data to be tabluar format and within a database management system, ideally SQL. For the organization side, we will define a schma that specifies the structure of the table, specifically having primary keys and foreign keys. On the storage side we will save everything to our github page to have easy acess while having different file forms to seperate data.
+
 * 3.) **Extraction and Enrichment (xx/xx)**: Although both of our datsets are form into structured data, Enrichment and Extraction of each datasets are important, for example:
     * Extracting 311 calls that is relted to food or restraunt calls as we are comparing the 311 calls to the food inspection dataset
     * Extracting identical or similar close address from both datsets
     * Enrichment still applies as we can use the addresses or locations of inspections and 311s calls to see if the city of chicago is targeting a specific location.
+     
 * 4.) **Data Integration (xx/xx)**: Data integration will be performed using shared spatial and temporal keys:
     * Spatial key: ZIP code, Location (Latitude, Longitude)
     * Temporal key: Date of inspection, Date of 311 report 
@@ -108,7 +111,7 @@ This project will answer the following research questions:
     * Remove missing values in location columns
     * Convert data types if needed
   
-* 7.)**Workflow automation and provenance (xx/xx)
+* 7.)**Workflow automation and provenance**(xx/xx): This process we will smoothly integrate our two clean datsets where we are able to answer our research questions. 
   
 * 8.)**Reproducibility and transparency (xx/xx)**: By displaying our datset into python, where we are able to clean the dataset to adress our goals for data cleaning and data quality. 
   
