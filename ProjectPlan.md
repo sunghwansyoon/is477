@@ -28,6 +28,9 @@ This project will answer the following research questions:
 
 ### Team
   * Sean Yoon
+    * Responsible for managing the GitHub repository
+    * Co-working on data integration and cleaning, exploratory analysis, and visualization
+    * Proposed Project Plan
   * Nathan Diaz
 
 ---
