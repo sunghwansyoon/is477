@@ -76,26 +76,6 @@ This project will answer the following research questions:
   We will perform data cleaning and integration as well; each of them will be located in 'data/cleaned' and 'data/integrated' directories.
 
   Our repository will also store a Jupyter notebook for data analysis, Python scripts for potential automation, and Markdown files (ProjectPlan.md, StatusReport.md, and README.md) for documentation.
-  
-
-  ##### Data integration and enrichment
-
-  Data integration will be performed using shared spatial and temporal keys:
-  * Spatial key: ZIP code, Location (Latitude, Longitude)
-  * Temporal key: Date of inspection, Date of 311 report 
-
-  Using the DuckDB or Pandas library, we will perform a left join of the food inspection (primary) data with aggregated 311 (secondary) data, ensuring each inspection record includes contextual information about recent complaint activity within its area and timeframe.
-
-  ##### Data quality and cleaning
-
-  Despite the datasets being well-maintained, they are likely to have issues shared by municipal data:
-  * Missing ZIP codes and addresses
-  * Duplicate inspection IDs or 311 complaints
-
-  Data cleaning will:
-  * Remove duplicate records
-  * Remove missing values in location columns
-  * Convert data types if needed
 
 ---
     
@@ -103,19 +83,37 @@ This project will answer the following research questions:
 
 * 1.) **Data collection and acquisition (10/06)**:Sean has selected the two datasets that are chosen for the course of the project. The primary datset will be Food Inspection where it describes the location of the resturaunt and when the inspection date took place. The secondary dataset will be 311 service Service Request where it gives the location of the where the request is.
 * 2.) **Storage and organization (xx/xx)**: For our data project, we would use a relational databse as our primary storage and organization strategy. This will allow our data to be tabluar format and within a database management system, ideally SQL. For the organization side, we will define a schma that specifies the structure of the table, specifically having primary keys and foreign keys. On the storage side we will save everything to our github page to have easy acess while having different file forms to seperate data.
-* 3.) **Extraction and Enrichment (xx/xx)**
-* 4.) **Data Integration (xx/xx)**
-* 5.)**Data Quality (xx/xx)**
-* 6.)**Data Cleaning (xx/xx)**
+* 3.) **Extraction and Enrichment (xx/xx)**: 
+* 4.) **Data Integration (xx/xx)**:
+    Data integration will be performed using shared spatial and temporal keys:
+      * Spatial key: ZIP code, Location (Latitude, Longitude)
+      * Temporal key: Date of inspection, Date of 311 report 
+    
+    Using the DuckDB or Pandas library, we will perform a left join of the food inspection (primary) data with aggregated 311 (secondary) data, ensuring each inspection record includes contextual information about recent complaint activity within its area and timeframe.
+  
+* 5.)**Data Quality (xx/xx)**:
+    Despite the datasets being well-maintained, they are likely to have issues shared by municipal data:
+       * Missing ZIP codes and addresses
+       * Duplicate inspection IDs or 311 complaints
+  
+* 6.)**Data Cleaning (xx/xx)**:
+    Data cleaning will:
+       * Remove duplicate records
+       * Remove missing values in location columns
+       * Convert data types if needed
+  
 * 7.)**Workflow automation and provenance (xx/xx)**
 * 8.)**Reproducibility and transparency (xx/xx)**
 * 9.)**Meta and Data Documentation (xx/xx)**
+
 ---
 
 ### Constraints
-
+* Reporting Bias: 311 complaints are voluntary reports; Neighborhoods can be underrepresented or overrepresented.
+* Time Matching: Food inspection does not occur periodically, so precise temporal alignment might be burdensome.
 
 ---
 
 ### Gaps
-
+* Workflow automation and provenance: Our project may be able to implement automation by fetching the latest data from APIs, and output correlation and visualization analysis. We would need additional inputs for this process.
+* Machine Learning Implementation: We can further extend our project by building a simple logistic regression model that determines pass/fail on food inspections based on 311 reports data, if there is a significant correlation between 311 reports and food inspections data.
