@@ -23,7 +23,7 @@ This project will answer the following research questions:
 1. Are Chicago neighborhoods with higher counts of 311 sanitation complaints also more likely to have restaurants that received a fail for city food inspections?
 2. Does an increase in 311 sanitation reports precede or follow an increase in failure in food inspections?
 3. Are there specific facilities that are more sensitive to external sanitation compared to others?
-4. Is there specific neighborhood(s) that appear to have more external sanitation compared to others?
+4. Is there specific neighborhood(s) that appear to be more sensitive toexternal sanitation compared to others?
 
 ---
 
