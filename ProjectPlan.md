@@ -62,17 +62,40 @@ This project will answer the following research questions:
 
   This project will follow the data lifecycle discussed in class. So far, we are using data collected by the City of Chicago. Thus, the data lifecycle of our project includes Storage/organization, Extraction & Enrichment, Data Integration, Data Quality and Cleaning, and Analysis.
 
+
   ##### Ethical data handling
 
-  The City of Chicago publicly releases both datasets under government data licenses. We will follow any restrictions set 
+  The City of Chicago publicly releases both datasets under government data licenses, which promote their use for analytical processes.
+  Our project will use the data for only educational and analytical purposes.
+
 
   ##### Storage and organization
 
+  While the City of Chicago data portal provides an API data export, we will download data in a CSV file and store a specific version in our GitHub repository under the 'data/raw/' folder.
+  This is because the datasets update daily, which may affect the accuracy of our analysis.
+  We will perform data cleaning and integration as well; each of them will be located in 'data/cleaned' and 'data/integrated' directories.
+
+  Our repository will also store a Jupyter notebook for data analysis, Python scripts for potential automation, and Markdown files (ProjectPlan.md, StatusReport.md, and README.md) for documentation.
+  
+
   ##### Data integration and enrichment
+
+  Data integration will be performed using shared spatial and temporal keys:
+  * Spatial key: ZIP code, Location (Latitude, Longitude)
+  * Temporal key: Date of inspection, Date of 311 report 
+
+  Using the DuckDB or Pandas library, we will perform a left join of the food inspection (primary) data with aggregated 311 (secondary) data, ensuring each inspection record includes contextual information about recent complaint activity within its area and timeframe.
 
   ##### Data quality and cleaning
 
-  ##### Workflow automation and provenance
+  Despite the datasets being well-maintained, they are likely to have issues shared by municipal data:
+  * Missing ZIP codes and addresses
+  * Duplicate inspection IDs or 311 complaints
+
+  Data cleaning will:
+  * Remove duplicate records
+  * Remove missing values in location columns
+  * Convert data types if needed
 
 ---
     
