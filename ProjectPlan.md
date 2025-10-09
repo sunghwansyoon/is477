@@ -2,7 +2,18 @@
 
 
 ### Overview
-##### Describe the overall goal of your project.
+
+What comes to your mind when you think about Chicago? Skyscraper? Jazz and blues music? The musical?
+These are all great representations of Chicago. Yet, Chicago has a strong culinary identity; it even has a dish named after its city: Chicago-style pizza.
+While serving delicious food is crucial to becoming a city of appetite, sanitation around food places is as important.
+The City of Chicago's Department of Public Health conducts the city's food inspections to make sure food served on the table is not only delicious but safe.
+The sanitation of the whole city is in charge by the 311 non-emergency system, where they receive hundreds of reports weekly. 
+
+This project aims to bring these two public datasets together into one integrated analysis.
+Specifically, we want to explore whether food inspection results correlate with 311 sanitation and rodent complaints across Chicago's neighborhood.
+We hypothesize that food places that receive failure or conditional tend to have a higher rate of sanitation reports.
+
+Beyond the technical analysis, our project may explore how civic engagement can affect public health outcomes.
 
 ---
 
@@ -11,6 +22,7 @@
 This project will answer the following research questions:
 1. Are Chicago neighborhoods with higher counts of 311 sanitation complaints also more likely to have restaurants that received a fail for city food inspections?
 2. Does an increase in 311 sanitation reports precede or follow an increase in failure in food inspections?
+3. Are there specific facilities that are more sensitive to external sanitation compared to others?
 
 ---
 
@@ -48,7 +60,7 @@ This project will answer the following research questions:
 
   ##### Data lifecycle
 
-  This project will follow the data lifecycle discussed in class. So far, we have completed data acquisition section 
+  This project will follow the data lifecycle discussed in class. So far, we are using data collected by the City of Chicago. Thus, the data lifecycle of our project includes Storage/organization, Extraction & Enrichment, Data Integration, Data Quality and Cleaning, and Analysis.
 
   ##### Ethical data handling
 
