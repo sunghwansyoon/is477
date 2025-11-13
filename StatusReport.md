@@ -1,1 +1,83 @@
+# Status Report
 
+### Datasets
+  * Primary Dataset: Food Inspection
+    * URL: https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5/about_data
+    * Source: Chicago Data Portal - City of Chicago
+    * Format: JSON/CSV
+    * Temporal Range: January 2010 to present
+    * Update Frequency: Updated daily
+    * Number of Rows: 298,000+
+    * Columns: Inspection ID, DBA (Doing Business As) Name, AKA (Also Known As) Name, License #, Facility Type, Risk, Address, City, State, Zip, Inspection Date, Inspection Type, Results, Violations, Latitude, Longitude, Location
+      
+    This dataset will serve as the primary data of the project, as it defines our analytical scope.
+
+
+  * Secondary Dataset: 311 Service Requests
+    * URL: https://data.cityofchicago.org/Service-Requests/311-Service-Requests/v6vf-nfxy/about_data
+    * Source: Chicago Data Portal - City of Chicago
+    * Format: JSON/CSV
+    * Temporal Range: December 18th, 2018 to present
+    * Update Frequency: Updated multiple times per day
+    * Number of Rows: 12,700,000+
+    * Columns: SR_Number, SR_Type, SR_Short_Code, Created_Department, Owner_Department, Status, Origin, Created Date, Last Modified Date, Closed Date, Street Address, City, State, Zip_Code, Street_Number, Street_Direction, Street_Name, Street_Type, Duplicate, Legacy_Record, Legacy_SR_Number, Parent_SR_Number,    Community_Area, Ward, Electrical_District, Electricity_Grid, Police_Sector, Police_District, Police_Beat, Precinct, Sanitation_Division_Days, Created_Hour, Created_Day_Of_Week, Created_Month, X_Coordinate, Y_Coordinate, Latitude, Longitude, Location
+
+    This dataset will serve as the secondary data of the project, reinforcing the context of our main Food Inspection data. 
+
+  By matching the location information available in both datasets, we can track foodservice establishments in Chicago that received food inspections from January 2019 to September 2025.
+
+  ##### Data lifecycle
+
+  This project will follow the data lifecycle discussed in class. So far, we are using data collected by the City of Chicago. Thus, the data lifecycle of our project includes Storage/organization, Extraction & Enrichment, Data Integration, Data Quality and Cleaning, and Analysis.
+
+
+  ##### Ethical data handling
+
+  The City of Chicago publicly releases both datasets under government data licenses, which promote their use for analytical processes.
+  Our project will use the data for only educational and analytical purposes.
+
+
+  ##### Storage and organization
+
+  While the City of Chicago data portal provides an API data export, we will download data in a CSV file and store a specific version in our GitHub repository under the 'data/raw/' folder.
+  This is because the datasets update daily, which may affect the accuracy of our analysis.
+  We will perform data cleaning and integration as well; each of them will be located in 'data/cleaned' and 'data/integrated' directories.
+
+  Our repository will also store a Jupyter notebook for data analysis, Python scripts for potential automation, and Markdown files (ProjectPlan.md, StatusReport.md, and README.md) for documentation.
+
+---
+    
+### Timeline
+
+* ~~1.) **Data collection and acquisition (10/06)**: Sean has selected the two datasets that are chosen for the course of the project. The primary datset will be Food Inspection where it describes the location of the resturaunt and when the inspection date took place. The secondary dataset will be 311 service Service Request where it gives the location of the where the request is.~~ Completed.
+
+* 2.) **Storage and organization (10/17)**: For our data project, we would use a relational databse as our primary storage and organization strategy. This will allow our data to be tabluar format and within a database management system, ideally SQL. For the organization side, we will define a schma that specifies the structure of the table, specifically having primary keys and foreign keys. On the storage side we will save everything to our github page to have easy acess while having different file forms to seperate data.
+
+* 3.) **Extraction and Enrichment (10/24)**: Although both of our datsets are form into structured data, Enrichment and Extraction of each datasets are important, for example:
+    * Extracting 311 calls that is relted to food or restraunt calls as we are comparing the 311 calls to the food inspection dataset
+    * Extracting identical or similar close address from both datsets
+    * Enrichment still applies as we can use the addresses or locations of inspections and 311s calls to see if the city of chicago is targeting a specific location.
+     
+* 4.) **Data Integration (10/31)**: Data integration will be performed using shared spatial and temporal keys:
+    * Spatial key: ZIP code, Location (Latitude, Longitude)
+    * Temporal key: Date of inspection, Date of 311 report 
+    
+    Using the DuckDB or Pandas library, we will perform a left join of the food inspection (primary) data with aggregated 311 (secondary) data, ensuring each inspection record includes contextual information about recent complaint activity within its area and timeframe.
+
+    We are considering of using ZIP Codes dataset to filter invalid ZIP codes in our integrated dataset.
+  
+* 5.)**Data Quality (11/07)**: Despite the datasets being well-maintained, they are likely to have issues shared by municipal data:
+    * Missing ZIP codes and addresses
+    * Duplicate inspection IDs or 311 complaints
+  
+* 6.)**Data Cleaning (11/14)**: Data cleaning will:
+    * Remove duplicate records
+    * Remove missing values in location columns
+    * Convert data types if needed
+  
+* 7.)**Workflow automation and provenance(11/21)**: This process we will smoothly integrate our two clean datsets and have a built code where the code could have a new
+  category having a row categorize which part of Chicago the resturaunt is located. Example: Northside, southside, downtown, etc. At the same time having the data being automaticaly being cleaned.
+  
+* 8.)**Reproducibility and transparency (11/28)**: Disclosing what are processed was and how we were able to clean the data.
+  
+* 9.)**Meta and Data Documentation (12/10)**: Giving background information of the data and idetifiying the variables and the variables that were useful to answering our research questions. 
