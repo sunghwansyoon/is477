@@ -95,7 +95,14 @@
     Also, our main purpose of analysis is to find the area (zip code) with most sanitary issue and compare it with food inspections data. 
     
     Using the DuckDB or Pandas library, we will perform a left join of the food inspection (primary) data with aggregated 311 (secondary) data, ensuring each inspection record includes contextual information about recent complaint activity within its area and timeframe.
-    - Update on Data Integration: We used pandas to join two datasets 
+    --> Update on Data Integration: We used Pandas python library to join the primary and secondary datasets because it was able to check the implementation step by step, providing more insights during the integration process.
+
+    Data Integration Process:
+    1. Before joining, we aggregated the 311 Service Requests (or 311 in short) dataset at the ZIP-code level. We grouped all 311 sanitary related service requests by 'ZIP_CODE' and counted the number of unique 311 records per 'ZIP_CODE.' Then, we added a column 'sr_count,' the number of 311 sanitary requests recorded in a specific ZIP area.
+    2. We changed the data type of ZIP code to string for both datasets to match data type to join two datasets. Rows with missing ZIP codes were removed since they can not be matched by the join key.
+    3. Performed left join on Food Inspections dataset with 311 sanitary (aggregated) dataset, which preserved every food inspection records and added new 'sr_count' column to each row. With ZIP code not matching 311 records, sr_count is filled with '0'.
+    4. Joining allowed us to analyze following research questions: "Do ZIP codes with more sanitation complaints have more failed inspections?", "Is there a relationship between public complaint behavior and inspection outcomes?", and "Which neighborhoods show the highest sanitation burden relative to restaurant safety performance?"
+    5. The output (integrated) dataset is located at 'data/integrated/food_inspections_with_311_by_zip.csv'.
   
 * 5.)**Data Quality (11/07)**: Despite the datasets being well-maintained, they are likely to have issues shared by municipal data:
     * Missing ZIP codes and addresses
