@@ -2,7 +2,7 @@
 
 ### Datasets
 
-#### Datasets in Planning Stage
+#### Datasets in Planning Stage:
   * Original Primary Dataset: Food Inspection
     * URL: https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5/about_data
     * Source: Chicago Data Portal - City of Chicago
@@ -25,7 +25,8 @@
 
     This dataset will serve as the secondary data of the project, reinforcing the context of our main Food Inspection data.
 
-#### Datasets in Storage and Organization Stage
+
+#### Datasets in Storage and Organization Stage:
   * Organized Primary Dataset: Food Inspection
     * URL: https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5/about_data
     * Source: Chicago Data Portal - City of Chicago
@@ -50,6 +51,10 @@
 
   Up on Storage and Organization Stage, we decided to import subsets of the original data, since the computational performance was insufficient to perform future stages of the project with the full datasets. Furthermore, the data included unnecessary items because we are using second-hand data, which means that data are not collected for this specific study.
 
+---
+
+### Ethics
+  
   ##### Data lifecycle
 
   This project is following the data lifecycle discussed in class.
