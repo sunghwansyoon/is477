@@ -127,8 +127,11 @@
   *Beginning of our rough draft report*
 
 **Source**: “Food Inspections” on the Chicago Data Portal
+
 **URL**: https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5/about_data
+
 **Summary description**:
+
 This dataset contains inspection records of restaurants and other food establishments in the City of Chicago, collected by the Chicago Department of Public Health’s Food Protection Program. Inspections are performed using a standardized procedure, in which an inspector records findings, the facility’s risk category, violations (if any), and the result (e.g., pass / pass with conditions / fail).
 Temporal / Spatial Scope:
 
@@ -149,9 +152,12 @@ Summary:
 In summary, the Chicago Food Inspections dataset is a rich, open repository of regulatory inspection records that can be leveraged for compliance monitoring, risk modelling, spatial analysis and time-trend evaluation. However, users must account for procedural changes (post-July 2018), potential duplicates, snapshot nature of results, and ensure responsible handling of geolocation data and business identities. Attribution to the City of Chicago is appropriate, and checking for any specific usage terms is prudent.
 
 **311 Service Requests**
+
 **Source**: “311 Service Requests” on the Chicago Data Portal
+
 **URL**: https://data.cityofchicago.org/Service-Requests/311-Service-Requests/v6vf-nfxy/about_data
-Summary description:
+**Summary description**:
+
 This dataset captures non-emergency service requests made by residents, callers, or staff via the City’s 311 system (City of Chicago) for issues such as potholes, graffiti removal, abandoned vehicles, sanitation complaints, and more. The dataset includes requests created after the launch of the “new 311 system” on December 18, 2018, along with some records from the previous system (as indicated by the “LEGACY_RECORD” field).
 Temporal / Spatial Scope:
 
@@ -198,32 +204,3 @@ Equity implications: If you use the data to compare neighborhoods, you must be m
 
 Summary:
 The 311 Service Requests dataset offers a comprehensive and up-to-date record of citizen-reported service issues within Chicago, enabling analyses of spatial demand for city services, temporal patterns, and linkages to infrastructure or neighbourhood characteristics. However, users should be cautious about using it as a pure measure of “need” or “service deficiency” without adjusting for reporting bias, system-change effects, or the fact that a request does not necessarily result in verification. Proper attribution and privacy-aware handling of location data is required.
-
-Joint considerations & recommendations
-When using these two datasets together (which I assume you intend, given your data-driven skill set and interest in integrative analysis), here are some key points:
-
-
-Linking datasets: Because the Food Inspections dataset includes geolocation (lat/long) and address, and the 311 dataset includes service request location, you may be able to join or spatially overlay to explore hypotheses (for example: are food establishments in areas with higher volumes of sanitation or rodent-related 311 calls more likely to fail inspections?). This kind of integrative analysis is quite powerful but also demands caution around spatial scale, potential confounders, and temporal alignment.
-
-
-Time alignment: Ensure that you align the time frames suitably — e.g., the 311 requests dataset starts post-Dec 18 2018 new system, whereas the inspections dataset covers back to 2010. If you pull a subset of inspections post-2018 you may avoid some temporal bias. Also ensure that you consider any inspection procedure changes (July 1 2018) and system change in 311 (Dec 2018) in your analysis.
-
-
-Geographical granularity: When merging or associating spatially, you might choose to aggregate to census-tract, ZIP code, or neighbourhood level if assembly of individual lat/long is too fine or risks re-identification. Also check for missing or malformed coordinates/addresses.
-
-
-Bias and causality: Be transparent in your analysis about limitations — e.g., higher 311 call volumes might reflect more engaged residents rather than worse underlying conditions; similarly, past inspection outcomes may influence both the business behaviour and the neighbourhood environment. Avoid implying causal relationships unless carefully tested.
-
-
-Ethical use of location data: Because both datasets involve physical addresses or coordinates, you should ensure that you do not inadvertently expose private individual data or use addresses in a way that could identify individuals (especially for mobile vendors, small business owner home-addresses, or when joined with owner names). You should treat business address data responsibly and, if disseminating results, consider aggregating or anonymising as needed.
-
-
-Attribution and licensing: While the datasets are public, and their metadata states “No license information was provided,” good practice is to attribute the City of Chicago as provider and include a note in your documentation that you used the City’s open-data portal. If you plan to publish findings, check the portal’s “Terms of Use” page to be safe.
-
-
-Document limitations: In your data-profile write-up (which you asked for) and in any downstream work, explicitly document known limitations: e.g., potential duplicates in the inspection data, procedural changes in mid-2018, reporting/selection bias in 311 data, incomplete coverage (only included if reported/inspected), and that inspection results represent the state at one point in time only.
-
-
-
-If you like, I can extract the full column dictionaries (field names, types, definitions) for both datasets (so you have a full schema list) and provide them in a ready-to-use format (CSV or Markdown) for your data-pipeline work. Would you like me to do that?
-
