@@ -135,7 +135,7 @@ Temporal / Spatial Scope:
 Covers inspections from January 1, 2010 to the present (or at least up to the last modified date) according to the Data.gov catalogue.
 The City of Chicago is the spatial domain (establishments within Chicago).
 
-Data accuracy and duplication: The publisher explicitly states: “Attempts have been made to minimise any and all duplicate inspection reports. However, the dataset may still contain such duplicates and the appropriate precautions should be exercised when viewing or analyzing these data.” data.wu.ac.at+1
+Data accuracy and duplication: The publisher explicitly states: “Attempts have been made to minimise any and all duplicate inspection reports. However, the dataset may still contain such duplicates and the appropriate precautions should be exercised when viewing or analyzing these data.”
 
 Temporal comparability caution: Because the inspection procedure changed on July 1 2018, comparisons across that date may reflect procedural changes rather than true underlying changes. You must flag this when analyzing trends.
 
