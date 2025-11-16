@@ -118,7 +118,7 @@
     * Remove missing values in location columns
     * Convert data types if needed
   
-* 7.)**Workflow automation and provenance(11/21)**: This process we will smoothly integrate our two clean datsets and have a built code where the code could have a new category having a row categorize which part of Chicago the resturaunt is located. Example: Northside, southside, downtown, etc. At the same time having the data being automaticaly being cleaned.
+* 7.)**Workflow automation and provenance(11/21)**: This process we will smoothly integrate our two clean datsets and have a built code where the code could have a new category having a row categorize which part of Chicago the resturaunt is located. Example: Northside, southside, downtown, etc. At the same time having the data being automaticaly being cleaned. Furthermore, we can also automate the data integration and data analysis. In terms of data analysis automation, we are planning to do the following analysis using the dataset: Basic Distribution and Ranking Analysis, Relationship Between Sanitation Complaints and Inspection Outcomes, Facility-Type Sensitivity, and ZIP-Level Geographic Insight. There could be more or less analyses conducted later.
   
 * 8.)**Reproducibility and transparency (11/28)**: Disclosing what are processed was and how we were able to clean the data.
   
