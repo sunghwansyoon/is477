@@ -79,9 +79,9 @@
     
 ### Timeline
 
-* {Completed}~~1.) **Data collection and acquisition (10/06)**: Sean has selected the two datasets that are chosen for the course of the project. The primary datset will be Food Inspection where it describes the location of the resturaunt and when the inspection date took place. The secondary dataset will be 311 service Service Request where it gives the location of the where the request is.~~ Completed.
+* {Completed}~~1.) **Data Collection and Acquisition (10/06)**: Sean has selected the two datasets that are chosen for the course of the project. The primary datset will be Food Inspection where it describes the location of the resturaunt and when the inspection date took place. The secondary dataset will be 311 service Service Request where it gives the location of the where the request is.~~ Completed.
 
-* {Completed}~~2.) **Storage and organization (10/17)**: For our data project, we would use a relational database as our primary storage and organization strategy. This will allow our data to be tabluar format and within a database management system, ideally SQL. For the organization side, we will define a schema that specifies the structure of the table, specifically having primary keys and foreign keys. On the storage side we will save everything to our github page to have easy acess while having different file forms to seperate data.~~
+* {Completed}~~2.) **Storage and Organization (10/17)**: For our data project, we would use a relational database as our primary storage and organization strategy. This will allow our data to be tabluar format and within a database management system, ideally SQL. For the organization side, we will define a schema that specifies the structure of the table, specifically having primary keys and foreign keys. On the storage side we will save everything to our github page to have easy acess while having different file forms to seperate data.~~
 
    When importing datasets from the City of Chicago, we imported subsets of the datasets due to the file sizes exceeding the computational power in the future steps.
    For further details on this, please check the 'Datasets' section above.
@@ -118,9 +118,9 @@
     * Remove missing values in location columns
     * Convert data types if needed
   
-* 7.)**Workflow automation and provenance(11/21)**: This process we will smoothly integrate our two clean datsets and have a built code where the code could have a new category having a row categorize which part of Chicago the resturaunt is located. Example: Northside, southside, downtown, etc. At the same time having the data being automaticaly being cleaned. Furthermore, we can also automate the data integration and data analysis. In terms of data analysis automation, we are planning to do the following analysis using the dataset: Basic Distribution and Ranking Analysis, Relationship Between Sanitation Complaints and Inspection Outcomes, Facility-Type Sensitivity, and ZIP-Level Geographic Insight. There could be more or less analyses conducted later.
+* 7.)**Workflow Automation and Provenance (11/21)**: This process we will smoothly integrate our two clean datsets and have a built code where the code could have a new category having a row categorize which part of Chicago the resturaunt is located. Example: Northside, southside, downtown, etc. At the same time having the data being automaticaly being cleaned. Furthermore, we can also automate the data integration and data analysis. In terms of data analysis automation, we are planning to do the following analysis using the dataset: Basic Distribution and Ranking Analysis, Relationship Between Sanitation Complaints and Inspection Outcomes, Facility-Type Sensitivity, and ZIP-Level Geographic Insight. There could be more or less analyses conducted later. The automation process will be conducted using Snakemake.
   
-* 8.)**Reproducibility and transparency (11/28)**: Disclosing what are processed was and how we were able to clean the data.
+* 8.)**Reproducibility and Transparency (11/28)**: Disclosing what are processed was and how we were able to clean the data.
   
 * 9.)**Meta and Data Documentation (12/10)**: Giving background information of the data and idetifiying the variables and the variables that were useful to answering our research questions.
 
