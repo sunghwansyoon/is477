@@ -193,10 +193,10 @@ Bias and representativeness: A major caution: the propensity for residents to pl
 Geolocation and privacy: The dataset includes location information of incident reports, which may relate to private property or identify patterns in specific buildings. If you join with other datasets (e.g., demographic data or business data) you must check for indirect identification risks.
 
 
-Temporal system change: Because the dataset switched to a new system on December 18, 2018, and legacy records exist, you must ensure proper handling of pre- and post-system change. Comparisons across the transition may be confounded by system architecture rather than actual service request changes. Chicago
+Temporal system change: Because the dataset switched to a new system on December 18, 2018, and legacy records exist, you must ensure proper handling of pre- and post-system change. Comparisons across the transition may be confounded by system architecture rather than actual service request changes.
 
 
-Interpretation caution: A service request does not always imply a confirmed issue or fault of the city; some are “information only”, or may be incorrectly located/addressed. The catalogue notes: “For purposes of all columns indicating geographic areas or locations, please note that requests of the type 311 INFORMATION ONLY CALL often are entered with the address of the City's 311 Center.” Data.gov
+Interpretation caution: A service request does not always imply a confirmed issue or fault of the city; some are “information only”, or may be incorrectly located/addressed. The catalogue notes: “For purposes of all columns indicating geographic areas or locations, please note that requests of the type 311 INFORMATION ONLY CALL often are entered with the address of the City's 311 Center.”
 
 
 Equity implications: If you use the data to compare neighborhoods, you must be mindful of structural biases in who reports issues. Using the data without this lens may inadvertently reinforce inequities or misinterpret neighborhood conditions.
