@@ -12,7 +12,7 @@ def main():
     RESULTS_DIR.mkdir(parents=True, exist_ok=True)
     PLOTS_DIR.mkdir(parents=True, exist_ok=True)
 
-    df = pd.read_csv(CLEANED_FILE, low_memory=False)
+    df = pd.read_csv(CLEANED_FILE)
     print(f"Loaded cleaned dataset: {len(df)} rows")
 
     df["sr_count"] = pd.to_numeric(df["sr_count"], errors="coerce").fillna(0).astype(int)
@@ -24,7 +24,7 @@ def main():
     # 1. Basic distribution and ranking (zip by sr_count)
 
     zip_rank = (
-        df.groupby("Zip", as_index=False)
+        df.groupby("Zip", as_index=False, dropna=False)
           .agg(avg_sr_count=("sr_count", "mean"), total_inspections=("Inspection ID", "nunique"))
           .sort_values("avg_sr_count", ascending=False)
     )
@@ -79,7 +79,6 @@ def main():
     facility_df = df.copy()
 
     if not facility_df.empty:
-        # Aggregate WITHOUT avg_sr_count (sr_count removed from output)
         facility_summary = (
             facility_df.groupby("Facility Type", as_index=False)
                     .agg(
@@ -95,7 +94,7 @@ def main():
 
         # Top 10 facility types by fail rate
         fac_plot = (
-            facility_summary
+            facility_summary[facility_summary["inspections"] >= 50]
             .sort_values("fail_rate", ascending=False)
             .head(10)
             .copy()
@@ -106,14 +105,14 @@ def main():
             plt.barh(fac_plot["Facility Type"], fac_plot["fail_rate"])
             plt.xlabel("Fail rate")
             plt.ylabel("Facility Type")
-            plt.title("Top Facility Types by Fail Rate (all facility types)")
+            plt.title("Top Facility Types by Fail Rate (>= 50 inspections)")
             plt.tight_layout()
             plot_facility = PLOTS_DIR / "facility_fail_rate_top.png"
             plt.savefig(plot_facility)
             plt.close()
             print(f"Plot saved: {plot_facility}")
         else:
-            print("No facility types available for plotting")
+            print("No facility types available for plotting (with >= 50 inspections)")
     else:
         print("No facility type information; skipping facility-type summary")
 
