@@ -851,5 +851,65 @@
       "mode": "row-based"
     },
     "description": "Remove rows"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Facility Type",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "ADULT DAY SERVICE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "ADULT DAYCARE"
+      }
+    ],
+    "description": "Mass edit cells in column Facility Type"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Facility Type",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "BANQUET ROOM"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "BANQUET HALL"
+      }
+    ],
+    "description": "Mass edit cells in column Facility Type"
+  },
+  {
+    "op": "core/mass-edit",
+    "engineConfig": {
+      "facets": [],
+      "mode": "row-based"
+    },
+    "columnName": "Facility Type",
+    "expression": "value",
+    "edits": [
+      {
+        "from": [
+          "CONVENIENCE"
+        ],
+        "fromBlank": false,
+        "fromError": false,
+        "to": "CONVENIENCE STORE"
+      }
+    ],
+    "description": "Mass edit cells in column Facility Type"
   }
 ]
