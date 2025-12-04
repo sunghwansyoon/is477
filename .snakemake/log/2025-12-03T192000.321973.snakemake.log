@@ -1,0 +1,48 @@
+Assuming unrestricted shared filesystem usage.
+host: Seans-MacBook-Pro-4.local
+Building DAG of jobs...
+Using shell: /bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job        count
+-------  -------
+all            1
+analyze        1
+total          2
+
+Select jobs to execute...
+Execute 1 jobs...
+[Wed Dec  3 19:20:00 2025]
+localrule analyze:
+    input: data/cleaned/food-inspections-with-311-by-zip-cleaned.csv
+    output: results/zip_rank_by_sr_count.csv, results/zip_fail_vs_sr.csv, results/facility_type_summary.csv, results/zip_summary_for_mapping.csv, results/plots/zip_rank_by_sr_count_top15.png, results/plots/fail_rate_vs_sr_count_scatter.png, results/plots/facility_fail_rate_top.png
+    jobid: 1
+    reason: Missing output files: results/zip_fail_vs_sr.csv, results/zip_rank_by_sr_count.csv, results/plots/fail_rate_vs_sr_count_scatter.png, results/plots/zip_rank_by_sr_count_top15.png, results/zip_summary_for_mapping.csv, results/facility_type_summary.csv, results/plots/facility_fail_rate_top.png
+    resources: tmpdir=/var/folders/b7/tsn_c63j6251c6rhj_pfzq1c0000gn/T
+RuleException:
+CalledProcessError in file "/Users/seanyoon/is477/Snakefile", line 23:
+Command 'set -euo pipefail;  python scripts/analyze_food_311.py' returned non-zero exit status 127.
+[Wed Dec  3 19:20:00 2025]
+Error in rule analyze:
+    message: None
+    jobid: 1
+    input: data/cleaned/food-inspections-with-311-by-zip-cleaned.csv
+    output: results/zip_rank_by_sr_count.csv, results/zip_fail_vs_sr.csv, results/facility_type_summary.csv, results/zip_summary_for_mapping.csv, results/plots/zip_rank_by_sr_count_top15.png, results/plots/fail_rate_vs_sr_count_scatter.png, results/plots/facility_fail_rate_top.png
+    shell:
+        python scripts/analyze_food_311.py
+        (command exited with non-zero exit code)
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look below for error messages
+[Wed Dec  3 19:20:00 2025]
+Error in rule analyze:
+    message: None
+    jobid: 1
+    input: data/cleaned/food-inspections-with-311-by-zip-cleaned.csv
+    output: results/zip_rank_by_sr_count.csv, results/zip_fail_vs_sr.csv, results/facility_type_summary.csv, results/zip_summary_for_mapping.csv, results/plots/zip_rank_by_sr_count_top15.png, results/plots/fail_rate_vs_sr_count_scatter.png, results/plots/facility_fail_rate_top.png
+    shell:
+        python scripts/analyze_food_311.py
+        (command exited with non-zero exit code)
+Complete log(s): /Users/seanyoon/is477/.snakemake/log/2025-12-03T192000.321973.snakemake.log
+WorkflowError:
+At least one job did not complete successfully.
