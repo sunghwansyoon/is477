@@ -11,5 +11,7 @@ Used OpenRefine for the Data Cleaning Process
     * Nearest Neighbor + Levenshtein r = 2.0, Bchars = 6: CONVENIENCE STORE vs. CONVENIENT STORE.
     * Nearest Neighbor + Levenshtein r = 3.0, Bchars = 6: CANDY SHOP vs. CANDY STORE and DOLLAR STORE vs. DOLLAR TREE.
     * Nearest Neighbor + PPM r = 1.0, Bchars = 6: LIVE POULTRY SLAUGHTER vs. POULTRY SLAUGHTER
+  
+      Followings are maually edited: ADULT DAYCARE vs. ADULT DAY SERVICE, ADULT DAYCARE vs. ADULT FAMILY CARE CENTER, BANQUET HALL vs. BANQUET ROOM, CONVENIENCE STORE vs. CONVENIENCE
 
       Finally, we remove null entries on 'Facility Type' by selecting '(blank)' on the Facet, All -> Edit rows -> Remove matching rows.
