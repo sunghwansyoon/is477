@@ -1,5 +1,6 @@
 # Are Chicagoans Secret Food Safety Inspectors? Analyzing Chicago's Food Inspection and 311-reported Sanitary Complaints Data
 
+
 ## Contributors
 <h3>Sean Yoon</h3>
     <ul>
@@ -17,6 +18,7 @@ What comes to your mind when you think about Chicago? Skyscraper? Jazz and blues
 Using the datasets publicly available from the two departments, we aim to explore on the correlation between the food inspection results and sanitation complaints across Chicago's neighborhood. This project will answer questions such as: Are Chicago neighborhoods with higher counts of 311 sanitation complaints also more likely to have restaurants that received a fail for city food inspections? Are neighborhoods with higher sanitary complaint volume also more likely to have higher inspection failure rates over the study period? Are there specific facilities that are more sensitive to external sanitation compared to others? Is there specific neighborhood(s) that appear to be more sensitive toexternal sanitation compared to others?
 
 Unlike our hypothesis that food places that receive failure or conditional tend to have a higher rate of sanitation reports, our analysis did not find a significant correlation between food inspection results and 311 sanitation complaints across Chicago's neighborhoods. However, we did find that certain facility types, such as restaurants and schools, tend to have a slightly higher fail rate when there is an increase in sanitation complaints. This suggests that while there may not be a direct correlation across all neighborhoods, specific types of food establishments may be more sensitive to external sanitation conditions. Further research could explore the underlying factors contributing to this sensitivity and whether targeted interventions could improve food safety outcomes in these establishments.
+
 
 ## Data Profile
 **Disclaimer**: This directory provides applications using data that has been modified for use from its original source, www.cityofchicago.org, the official website of the City of Chicago.  The City of Chicago makes no claims as to the content, accuracy, timeliness, or completeness of any of the data provided at this site.  The data provided at this site is subject to change at any time.  It is understood that the data provided at this site is being used at one’s own risk.
@@ -45,21 +47,47 @@ During the import, we eliminated data beyond the time scope to ensure timeliness
 
 The secondary data set contained various types of service requests, but we only focused on sanitary-related complaints to align with our research question. We filtered the dataset to include only records where the "SR_Type" column contained "Sanitary Condition" or similar keywords. This ensured that we were analyzing relevant data that could potentially impact food inspection results.
 
+
 ## Data Quality
 Since we are conducting analysis with second-hand data, not collected by ourselves, we had to carefully assess the data quality before proceeding with the analysis. We identified several data quality issues in both datasets that needed to be addressed:
 
 
 ## Findings
-1. Overall Correlation Analysis
-   - We calculated the Pearson correlation coefficient between the average number of 311 sanitary complaints and the food inspection fail rates across different ZIP codes in Chicago. The correlation coefficient was 0.5462, indicating a moderate positive correlation. The p-value was 1.4886e-08, suggesting that the correlation is statistically significant. However, the moderate strength of the correlation indicates that other factors may also be influencing food inspection outcomes.
-   ![Alt text](results/plots/fail_rate_vs_sr_count_scatter_labeled.png)
-   
-2. Facility Type Sensitivity
-    - We analyzed the sensitivity of different facility types to 311 sanitary complaints. Restaurants and schools showed a slightly higher fail rate when there was an increase in sanitary complaints, suggesting that these facility types may be more affected by external sanitation conditions.
+### 1. Overall Correlation Analysis
+
+We calculated the Pearson correlation coefficient between the average number of 311 sanitary complaints and the food inspection fail rates across different ZIP codes in Chicago. The `correlation` coefficient was `0.5462`, indicating a moderate positive correlation. The `p-value` was `1.4886e-08`, suggesting that the correlation is statistically significant. However, the moderate strength of the correlation indicates that other factors may also be influencing food inspection outcomes.
+
+![Alt text](results/plots/fail_rate_vs_sr_count_scatter_labeled.png)
+
+
+### 2. Facility Type Sensitivity
+We analyzed the sensitivity of different facility types to 311 sanitary complaints. Restaurants and schools showed a higher sensitivity, with fail rates increasing more significantly with the number of complaints. This suggests that these facility types may be more affected by external sanitation conditions.
+
+![Alt text](results/plots/facility_type_fail_vs_sr_comparison.png)
+
+
+### 3. Sensitive ZIP Codes
+We identified specific ZIP codes that exhibited a significant increase in food inspection fail rates with an increase in 311 sanitary complaints. These ZIP codes may require targeted interventions to improve sanitation and food safety.
+
+![Alt text](results/plots/sensitive_zips_highlighted.png)
+
+
+### 4. Top ZIP Codes by Average Sanitary Complaints
+We identified the top 15 ZIP codes with the highest average number of 311 sanitary complaints. These areas may benefit from increased sanitation efforts to potentially improve food inspection outcomes.
+
+![Alt text](results/plots/zip_rank_by_sr_count_top15.png)
+
+
+### 5. Facility Type Fail Rates
+We calculated the fail rates for different facility types. Restaurants had the highest fail rate, followed by schools and grocery stores. This information can help prioritize inspection efforts.
+
+![Alt text](results/plots/facility_fail_rate_top.png)
 
 
 ## Future Work
-
+About potential future work, we could consider the following directions:
+1. Temporal Analysis: Conduct a timely analysis to examine how the relationship between 311 sanitary complaints and food inspection results changes over time. This could help identify seasonal trends or the impact of specific events (e.g., public health campaigns).
+2. Geospatial Analysis: Perform a geospatial analysis to visualize the distribution of sanitary complaints and food inspection results across Chicago. This could help identify hotspots that require targeted interventions.
 
 ## Reproducing
 
