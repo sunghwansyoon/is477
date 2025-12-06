@@ -3,6 +3,7 @@ from pathlib import Path
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from scipy.stats import pearsonr
 
 CLEANED_FILE = Path("data/cleaned/food-inspections-with-311-by-zip-cleaned.csv")
 RESULTS_DIR = Path("results")
@@ -61,6 +62,28 @@ def main():
 
     corr_zip = fail_vs_sr[["avg_sr_count", "fail_rate"]].corr().iloc[0, 1]
     print(f"ZIP-level correlation between avg_sr_count and fail_rate: {corr_zip:.4f}")
+
+    # ZIP-level Pearson correlation + p-value
+    r, p = pearsonr(
+        fail_vs_sr["avg_sr_count"],
+        fail_vs_sr["fail_rate"]
+    )
+
+    print(f"ZIP-level Pearson correlation (r): {r:.4f}")
+    print(f"P-value: {p:.4e}")
+
+    corr_df = pd.DataFrame([{
+        "level": "ZIP",
+        "metric": "avg_sr_count vs fail_rate",
+        "pearson_r": r,
+        "p_value": p,
+        "n_zips": len(fail_vs_sr)
+    }])
+
+    corr_out = RESULTS_DIR / "correlation_summary.csv"
+    corr_df.to_csv(corr_out, index=False)
+
+    print(f"Saved correlation summary: {corr_out}")
 
     # scatter plot: fail rate vs avg_sr_count
     plt.figure(figsize=(10,8)) 
