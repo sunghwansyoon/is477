@@ -2,6 +2,7 @@
 from pathlib import Path
 import pandas as pd
 import matplotlib.pyplot as plt
+import seaborn as sns
 
 CLEANED_FILE = Path("data/cleaned/food-inspections-with-311-by-zip-cleaned.csv")
 RESULTS_DIR = Path("results")
@@ -21,7 +22,7 @@ def main():
     df["Results_clean"] = df["Results"].astype(str).str.lower().str.strip()
     df["is_fail"] = df["Results_clean"].eq("fail")
 
-    # 1. Basic distribution and ranking (zip by sr_count)
+    # Basic distribution and ranking (zip by sr_count)
 
     zip_rank = (
         df.groupby("Zip", as_index=False, dropna=False)
@@ -34,7 +35,7 @@ def main():
 
     # top 15 ZIPs by avg_sr_count visualization
     top_zip = zip_rank.head(15)
-    plt.figure()
+    plt.figure(figsize=(10,8))
     plt.bar(top_zip["Zip"], top_zip["avg_sr_count"])
     plt.xticks(rotation=45, ha="right")
     plt.xlabel("Zip Code")
@@ -47,7 +48,7 @@ def main():
     print(f"Plot saved: {plot_zip_rank}")
 
 
-    # 2. sr_count and fail rate analysis
+    # RQ1 - sr_count and fail rate analysis
 
     fail_vs_sr = (
         df.groupby("Zip", as_index=False)
@@ -58,24 +59,53 @@ def main():
     fail_vs_sr.to_csv(fail_vs_sr_out, index=False)
     print(f"Saved fail vs sr_count summary: {fail_vs_sr_out}")
 
-    corr = df[["sr_count", "is_fail"]].corr().iloc[0, 1]
-    print(f"Correlation between sr_count and is_fail: {corr:.4f}")
+    corr_zip = fail_vs_sr[["avg_sr_count", "fail_rate"]].corr().iloc[0, 1]
+    print(f"ZIP-level correlation between avg_sr_count and fail_rate: {corr_zip:.4f}")
 
-    # Scatter plot: avg_sr_count vs fail_rate
-    plt.figure()
-    plt.scatter(fail_vs_sr["avg_sr_count"], fail_vs_sr["fail_rate"], alpha=0.6)
+    # scatter plot: fail rate vs avg_sr_count
+    plt.figure(figsize=(10,8)) 
+    plt.scatter(fail_vs_sr["avg_sr_count"], fail_vs_sr["fail_rate"], alpha=0.6) 
+    plt.xlabel("Average sr_count (per ZIP)") 
+    plt.ylabel("Fail rate") 
+    plt.title("Fail Rate vs Sanitary 311 Requests (by ZIP)") 
+    plt.tight_layout() 
+    plot_fail_vs_sr = PLOTS_DIR / "fail_rate_vs_sr_count_scatter.png" 
+    plt.savefig(plot_fail_vs_sr) 
+    plt.close() 
+    print(f"Plot saved: {plot_fail_vs_sr}")
+
+    # scatter plot with labeled top 10 ZIPs by fail rate
+    label_zips = fail_vs_sr.head(10)
+
+    plt.figure(figsize=(10,8))
+    plt.scatter(
+        fail_vs_sr["avg_sr_count"],
+        fail_vs_sr["fail_rate"],
+        alpha=0.5
+    )
+
+    for _, row in label_zips.iterrows():
+        plt.text(
+            row["avg_sr_count"],
+            row["fail_rate"],
+            row["Zip"],
+            fontsize=7,
+            alpha=0.8,
+            ha="center",
+            va="bottom",
+        )
+
     plt.xlabel("Average sr_count (per ZIP)")
     plt.ylabel("Fail rate")
-    plt.title("Fail Rate vs Sanitary 311 Requests (by ZIP)")
+    plt.title("Fail Rate vs Sanitary 311 Requests (by ZIP) with Top ZIP Labels")
     plt.tight_layout()
-    plot_fail_vs_sr = PLOTS_DIR / "fail_rate_vs_sr_count_scatter.png"
+    plot_fail_vs_sr = PLOTS_DIR / "fail_rate_vs_sr_count_scatter_labeled.png"
     plt.savefig(plot_fail_vs_sr)
     plt.close()
     print(f"Plot saved: {plot_fail_vs_sr}")
 
 
-    # 3. sensitivity in facility type
-
+    # Sensitivity in facility type
     facility_df = df.copy()
 
     if not facility_df.empty:
@@ -101,7 +131,7 @@ def main():
         )
 
         if not fac_plot.empty:
-            plt.figure()
+            plt.figure(figsize=(10,8))
             plt.barh(fac_plot["Facility Type"], fac_plot["fail_rate"])
             plt.xlabel("Fail rate")
             plt.ylabel("Facility Type")
@@ -117,7 +147,136 @@ def main():
         print("No facility type information; skipping facility-type summary")
 
 
-    # 4. geographical summary by zip (for mapping)
+    # RQ2 - Scatter plot: facility type fail rate vs sr_count
+    facility_zip = (
+        df.groupby(["Facility Type", "Zip"], as_index=False)
+          .agg(
+              avg_sr_count=("sr_count", "mean"),
+              fail_rate=("is_fail", "mean"),
+              inspections=("Inspection ID", "nunique"),
+          )
+    )
+
+    facility_zip_plot = facility_zip[(facility_zip["Facility Type"].notna()) & (facility_zip["Facility Type"].str.lower() != "nan")].copy()
+
+    facility_counts = (
+        df.groupby("Facility Type")["Inspection ID"].nunique().reset_index(name="inspection_count")
+    )
+
+    facility_zip_plot = facility_zip_plot.merge(facility_counts, on="Facility Type", how="left")
+    facility_zip_plot = facility_zip_plot[facility_zip_plot["inspection_count"] >= 300]
+
+    if not facility_zip_plot.empty:
+        rows = []
+        for ft, g in facility_zip.groupby("Facility Type"):
+            if g["avg_sr_count"].nunique() < 2:
+                continue
+            corr_ft = g[["avg_sr_count", "fail_rate"]].corr().iloc[0, 1]
+            rows.append({
+                "Facility Type": ft,
+                "corr_sr_fail": corr_ft,
+                "zip_count": g["Zip"].nunique(),
+                "total_inspections": g["inspections"].sum()
+            })
+
+        facility_sensitivity = (
+            pd.DataFrame(rows)
+            .sort_values("corr_sr_fail", ascending=False)
+        )
+
+        sens_out = RESULTS_DIR / "facility_sr_sensitivity.csv"
+        facility_sensitivity.to_csv(sens_out, index=False)
+        print(f"Saved facility-type sensitivity summary: {sens_out}")
+
+        plt.figure(figsize=(10,8))
+        top_types = (
+            facility_zip_plot["Facility Type"]
+            .value_counts()
+            .nlargest(10)
+            .index
+        )
+
+        plot_df = facility_zip_plot[
+            facility_zip_plot["Facility Type"].isin(top_types)
+        ]
+
+        g = sns.FacetGrid(
+            plot_df,
+            col="Facility Type",
+            col_wrap=4,
+            height=3
+        )
+
+        g.map_dataframe(
+            sns.scatterplot,
+            x="avg_sr_count",
+            y="fail_rate",
+            alpha=0.6
+        )
+
+        g.set_axis_labels("Average sr_count (per ZIP)", "Fail rate")
+        g.set_titles("{col_name}")
+        g.fig.suptitle("Facility-Type Fail Rate vs Sanitary 311 Requests", y=1.03)
+
+        fac_comp_plot = PLOTS_DIR / "facility_type_fail_vs_sr_comparison.png"
+        plt.savefig(fac_comp_plot)
+        plt.close()
+        print(f"Plot saved: {fac_comp_plot}")
+
+    # RQ3 - Identify sensitive ZIPs
+    sr_thresh = fail_vs_sr["avg_sr_count"].quantile(0.75)
+    fail_thresh = fail_vs_sr["fail_rate"].quantile(0.75)
+
+    sensitive_zips = fail_vs_sr[(fail_vs_sr["avg_sr_count"] >= sr_thresh) & (fail_vs_sr["fail_rate"] >= fail_thresh)].copy()
+
+    sensitive_out = RESULTS_DIR / "sensitive_zip_summary.csv"
+    sensitive_zips.to_csv(sensitive_out, index=False)
+    print(f"Saved sensitive ZIP summary: {sensitive_out}")
+
+    if not sensitive_zips.empty:
+        plt.figure(figsize=(10,8))
+        # all ZIPs
+        plt.scatter(
+            fail_vs_sr["avg_sr_count"],
+            fail_vs_sr["fail_rate"],
+            alpha=0.3,
+            label="Other ZIPs"
+        )
+        # sensitive ZIPs highlighted
+        plt.scatter(
+            sensitive_zips["avg_sr_count"],
+            sensitive_zips["fail_rate"],
+            color="red",
+            alpha=0.8,
+            label="Sensitive ZIPs (>= 75th percentile on both)"
+        )
+
+        plt.axvline(sr_thresh, linestyle="--", linewidth=0.8)
+        plt.axhline(fail_thresh, linestyle="--", linewidth=0.8)
+
+        for _, row in sensitive_zips.iterrows():
+            plt.text(
+                row["avg_sr_count"],
+                row["fail_rate"],
+                row["Zip"],
+                fontsize=7,
+                ha="center",
+                va="bottom"
+            )
+
+        plt.xlabel("Average sr_count (per ZIP)")
+        plt.ylabel("Fail rate")
+        plt.title("Sensitive ZIPs by Fail Rate and Sanitary 311 Requests")
+        plt.legend()
+        plt.tight_layout()
+
+        sens_plot = PLOTS_DIR / "sensitive_zips_highlighted.png"
+        plt.savefig(sens_plot)
+        plt.close()
+        print(f"Plot saved: {sens_plot}")
+
+
+    # Geographical summary by zip (for mapping)
 
     zip_summary = (
         df.groupby("Zip", as_index=False)
