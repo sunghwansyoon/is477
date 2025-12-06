@@ -51,6 +51,7 @@ The secondary data set contained various types of service requests, but we only 
 ## Data Quality
 Since we are conducting analysis with second-hand data, not collected by ourselves, we had to carefully assess the data quality before proceeding with the analysis. We identified several data quality issues in both datasets that needed to be addressed:
 
+1. Missing Values: Both datasets had missing values in critical columns such as "Zip" in the food inspection dataset and "Zip_Code" in the 311 service requests dataset. We handled these missing values by removing records with missing ZIP codes, as they were essential for our analysis.
 
 ## Findings
 ### 1. Overall Correlation Analysis
@@ -85,11 +86,22 @@ We calculated the fail rates for different facility types. Restaurants had the h
 
 
 ## Future Work
-About potential future work, we could consider the following directions:
+About potential future work, we consider the followings:
 1. Temporal Analysis: Conduct a timely analysis to examine how the relationship between 311 sanitary complaints and food inspection results changes over time. This could help identify seasonal trends or the impact of specific events (e.g., public health campaigns).
 2. Geospatial Analysis: Perform a geospatial analysis to visualize the distribution of sanitary complaints and food inspection results across Chicago. This could help identify hotspots that require targeted interventions.
 
 ## Reproducing
+1. Overall Correlation Analysis
+
+2. Facility Type Sensitivity
+
+3. Sensitive ZIP Codes
+
+4. Top ZIP Codes by Average Sanitary Complaints
+
+5. Facility Type Fail Rates
 
 
 ## References
+
+
