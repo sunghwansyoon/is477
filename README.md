@@ -12,9 +12,9 @@
 <h3>Nathan Diaz</h3>
     <ul>
         <li>Written protion of Data Quality</li>
-        <li>Findings</li>
-        <li>Future Work</li>
-        <li></li>Refrences</li>
+        <li>Wrote Findings</li>
+        <li>Wrote Future Work</li>
+        <li>Conductued Refrences</li>
     </ul>
         
 
