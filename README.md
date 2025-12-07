@@ -10,7 +10,13 @@
         <li>Wrote data analysis and visualization scripts</li>
     </ul>
 <h3>Nathan Diaz</h3>
-
+    <ul>
+        <li>Written protion of Data Quality</li>
+        <li>Findings</li>
+        <li>Future Work</li>
+        <li></li>Refrences</li>
+    </ul>
+        
 
 ## Summary
 What comes to your mind when you think about Chicago? Skyscraper? Jazz and blues music? The musical? These are all great representations of Chicago. Yet, Chicago has a strong culinary identity; it is renowned for having exceptional and diverse restaurants, even has a dish named after its city: Chicago-style pizza. While serving delicious food is crucial to becoming a city of appetite, sanitation around food places is as important. The City of Chicago's Department of Public Health conducts the city's food inspections to make sure food served on the table is not only delicious but safe. The sanitation of the whole city is in charge by the 311 non-emergency system, where they receive hundreds of reports weekly. 
