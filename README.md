@@ -63,7 +63,7 @@ However, data collection still lacks full transparency: the documentation does n
 Both datasets clearly list update frequency—Food Inspections updates automatically and 311 updates daily—but they do not describe data latency, archival processes, or whether older records are revised after publication. Overall, while both datasets provide surface-level metadata, they lack deeper explanations needed for fully transparent, reproducible analysis.
 
 Below is a list of possible errors and features that impacts the quality of both datsets:
-    * Missingness Patterns Not Explained: Although both datasets contain missing values, neither source explains why certain fields are missing or how missingness occurs.
+    # 1. Missingness Patterns Not Explained: Although both datasets contain missing values, neither source explains why certain fields are missing or how missingness occurs.
     * Lack of Versioning or Revision History: Chicago Data Portal does not show what data changed over time, only that the dataset was updated.
     * Potential Data Entry / Human Error: portions of each dataset rely on manual entry by inspectors or call center staff, typographical errors, inconsistent formatting, or ambiguous text fields can occur. These inconsistencies may lead to misclassification or reduced accuracy when parsing categorical variables or free-text commentary.
     *Inconsistent Use of Categorical Labels:Some categorical fields lack strict controlled vocabularies. For example, similar categories may appear under slightly different names across years, and the documentation does not provide a definitive enumeration of all possible values. These inconsistencies reduce interoperability and complicate aggregation across time.
