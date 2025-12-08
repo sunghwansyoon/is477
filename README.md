@@ -122,8 +122,34 @@ Now there is a common trend on how there are more violations and more 311 sanita
 
 ## Future Work
 About potential future work, we consider the followings:
-1. Temporal Analysis: Conduct a timely analysis to examine how the relationship between 311 sanitary complaints and food inspection results changes over time. This could help identify seasonal trends or the impact of specific events (e.g., public health campaigns).
-2. Geospatial Analysis: Perform a geospatial analysis to visualize the distribution of sanitary complaints and food inspection results across Chicago. This could help identify hotspots that require targeted interventions.
+
+A natural extension of the current project is to explore how the relationship between 311 sanitary complaints and food inspection outcomes evolves over time. Since both datasets span many years and are updated regularly, they are well-suited for investigating trends, seasonality, and changes in reporting behavior or inspection strategy.
+Future work could begin by constructing a time-series pipeline that aggregates sanitary complaints and inspection results by meaningful intervals—such as week, month, quarter, or year. This would allow for several forms of temporal exploration:
+
+# Trend Analysis
+Analysts could examine whether increases in sanitary-related 311 complaints reliably precede spikes in inspection failures. If a lagged correlation exists, this might suggest that 311 requests could serve as an early-warning system for identifying potential high-risk establishments.
+Seasonality and Event Impacts
+Chicago’s seasonal conditions (e.g., humid summers, freezing winters) may influence food safety outcomes or citizen complaint behavior. A temporal decomposition could reveal:
+* seasonal peaks in certain types of violations
+* yearly cycles in complaint volume
+* changes connected to specific public health campaigns or new policies
+# Geospatial Analysis
+
+A second major direction for future work is to leverage the geographic richness of both datasets to perform a full geospatial analysis of sanitary complaints and inspection results across Chicago. Because each record contains location information (addresses, ZIP codes, census tracts, or coordinates), spatial patterns could be visualized and analyzed to uncover geographic disparities or localized risk factors.
+Mapping and Visualization
+Using geospatial libraries such as geopandas, folium, or mapping tools like Kepler.gl, future work could:
+* Map sanitary complaints across the city
+* Overlay inspection results to compare complaint hotspots with high-failure areas
+* Visualize spatial clustering of Risk 1 (High) establishments
+
+
+These visualizations would help identify neighborhoods where sanitary concerns frequently arise but are not necessarily matched with inspection failures, suggesting possible gaps in resource deployment or reporting accuracy.
+Another important direction for future work involves addressing the computational challenges posed by the size and complexity of the datasets used in this project. Both the 311 Service Requests and Food Inspections datasets are updated daily and contain records stretching back many years, which means they effectively operate as append-only historical archives. The 311 dataset alone exceeds 13 million individual entries, and the Food Inspections dataset continues to grow as the city logs every inspection, reinspection, and violation. Working with data at this scale introduces significant performance constraints, particularly when conducting repeated filtering, merging, temporal aggregation, or spatial operations.
+
+During our analysis, we relied primarily on local computational resources, which limited the kinds of advanced workflows we could run efficiently. Larger-scale tasks—such as training predictive models using full historical data, calculating spatial autocorrelation metrics, or running multi-year rolling windows for temporal forecasting—would require more memory, faster processing speeds, and potentially cloud-based infrastructure. As the datasets continue to grow, even simple operations like geocoding addresses, computing proximity relationships, or dynamically clustering millions of points become computationally expensive.
+
+A stronger computing environment would therefore enable a much more ambitious analytical pipeline. With increased computational capacity, we could run full geospatial analyses that incorporate every historical record, rather than relying on sampled subsets. This would allow for more accurate spatial hotspot detection, neighborhood-level mapping, and integration with external geographic datasets such as census boundaries or zoning maps. Similarly, stronger hardware would allow us to perform multi-year temporal modeling using the complete dataset rather than simplified or aggregated versions.
+
 
 ## Reproducing
 1. Overall Correlation Analysis
