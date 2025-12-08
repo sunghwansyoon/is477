@@ -126,14 +126,14 @@ About potential future work, we consider the followings:
 A natural extension of the current project is to explore how the relationship between 311 sanitary complaints and food inspection outcomes evolves over time. Since both datasets span many years and are updated regularly, they are well-suited for investigating trends, seasonality, and changes in reporting behavior or inspection strategy.
 Future work could begin by constructing a time-series pipeline that aggregates sanitary complaints and inspection results by meaningful intervals—such as week, month, quarter, or year. This would allow for several forms of temporal exploration:
 
-# Trend Analysis
+### Trend Analysis
 Analysts could examine whether increases in sanitary-related 311 complaints reliably precede spikes in inspection failures. If a lagged correlation exists, this might suggest that 311 requests could serve as an early-warning system for identifying potential high-risk establishments.
 Seasonality and Event Impacts
 Chicago’s seasonal conditions (e.g., humid summers, freezing winters) may influence food safety outcomes or citizen complaint behavior. A temporal decomposition could reveal:
 * seasonal peaks in certain types of violations
 * yearly cycles in complaint volume
 * changes connected to specific public health campaigns or new policies
-# Geospatial Analysis
+### Geospatial Analysis
 
 A second major direction for future work is to leverage the geographic richness of both datasets to perform a full geospatial analysis of sanitary complaints and inspection results across Chicago. Because each record contains location information (addresses, ZIP codes, census tracts, or coordinates), spatial patterns could be visualized and analyzed to uncover geographic disparities or localized risk factors.
 Mapping and Visualization
