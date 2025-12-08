@@ -116,6 +116,7 @@ Through each of our graphs we can conclude the 311 sanitary rates for each type 
 * 60624 - West Garfield Park (West Side)*
 * 60644 - Austin (West Side)*
 * 60625 - Ravenswood (North side)
+
 Now there is a common trend on how there are more violations and more 311 sanitation complaints in the south side of Chicago. With the City of Chicago pdf file of their “Chi BIZ Strong Grant Program” where it helps focus Chicago business and community area, shows the community areas with at least 65%  low or moderate income residents. 6 out of the 13 neighborhoods are on the list which are marked with a star. Now we assume that there may be a correlation between high failure rates and high sanitation complaints with low/ moderate income neighborhoods. But we would like to remind you that correlation does cause causation.
 
 
