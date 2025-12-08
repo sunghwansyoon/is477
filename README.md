@@ -164,5 +164,28 @@ A stronger computing environment would therefore enable a much more ambitious an
 
 
 ## References
+* City of Chicago. (n.d.). 311 service requests. Chicago Data Portal. https://data.cityofchicago.org/Service-Requests/311-Service-Requests/v6vf-nfxy/about_data
+
+* City of Chicago. (n.d.). Food inspections. Chicago Data Portal. https://data.cityofchicago.org/Health-Human-Services/Food-Inspections/4ijn-s7e5/about_data
+
+* Chicago Public Schools. (n.d.). CPS school locator. https://schoolinfo.cps.edu/schoollocator/index.html
+
+* Chicago Department of Public Health. (n.d.). Food inspections data dictionary. Chicago Data Portal. https://data.cityofchicago.org/api/assets/BAD5301B-681A-4202-9D25-51B2CAE672FF
+
+* Chicago Department of Innovation & Technology. (n.d.). 311 service request data dictionary. Chicago Data Portal. https://data.cityofchicago.org/api/assets/BAD5301B-681A-4202-9D25-51B2CAE672FF
+
+* City of Chicago. (n.d.). Chi Biz Strong Grant Program: Community areas with at least 65% low or moderate income residents [Internal draft for policy deliberation; PDF].
+
+* McKinney, W. (2010). Data structures for statistical computing in Python. In Proceedings of the 9th Python in Science Conference (pp. 51–56). https://pandas.pydata.org/(The pandas Development Team). (2024). pandas [Computer software]. https://pandas.pydata.org/
+
+* Hunter, J. D. (2007). Matplotlib: A 2D graphics environment. Computing in Science & Engineering, 9(3), 90–95. https://matplotlib.org/
+
+* Waskom, M. L. (2021). Seaborn: Statistical data visualization. Journal of Open Source Software, 6(60), 3021. https://seaborn.pydata.org/
+
+* Virtanen, P., Gommers, R., Oliphant, T. E., Haberland, M., Reddy, T., Cournapeau, D., … van Mulbregt, P. (2020). SciPy 1.0: Fundamental algorithms for scientific computing in Python. Nature Methods, 17(3), 261–272. https://scipy.org/
+
+* Harris, C. R., Millman, K. J., van der Walt, S. J., Gommers, R., Virtanen, P., Cournapeau, D., … Oliphant, T. E. (2020). Array programming with NumPy. Nature, 585, 357–362. https://numpy.org/
+
+* Python Software Foundation. (2024). pathlib (Version 3.x) [Standard library module]. https://docs.python.org/3/library/pathlib.html
 
 
