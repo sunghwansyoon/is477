@@ -23,7 +23,7 @@ def main():
     df["Results_clean"] = df["Results"].astype(str).str.lower().str.strip()
     df["is_fail"] = df["Results_clean"].eq("fail")
 
-    # Basic distribution and ranking (zip by sr_count)
+    # RQ4 - Basic distribution and ranking (zip by sr_count)
 
     zip_rank = (
         df.groupby("Zip", as_index=False, dropna=False)
@@ -128,7 +128,7 @@ def main():
     print(f"Plot saved: {plot_fail_vs_sr}")
 
 
-    # Sensitivity in facility type
+    # RQ5 - Sensitivity in facility type
     facility_df = df.copy()
 
     if not facility_df.empty:
@@ -170,7 +170,7 @@ def main():
         print("No facility type information; skipping facility-type summary")
 
 
-    # RQ2 - Scatter plot: facility type fail rate vs sr_count
+    # RQ2 - facility type fail rate vs sr_count
     facility_zip = (
         df.groupby(["Facility Type", "Zip"], as_index=False)
           .agg(

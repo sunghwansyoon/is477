@@ -11,6 +11,15 @@ rule all:
         "results/plots/fail_rate_vs_sr_count_scatter_labeled.png",
         "results/plots/sensitive_zips_highlighted.png"
 
+rule integrate:
+    input:
+        "data/raw/Food_Inspections_raw.csv",
+        "data/raw/311_Service_Requests_sanitary_raw.csv"
+    output:
+        "data/integrated/food_inspections_with_311_by_zip.csv"
+    shell:
+        "python3 scripts/integrate_food_311.py"
+
 rule hash_data:
     input:
         "data/raw/Food_Inspections_raw.csv",

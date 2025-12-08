@@ -153,14 +153,49 @@ A stronger computing environment would therefore enable a much more ambitious an
 
 ## Reproducing
 1. Overall Correlation Analysis
+    * The analysis can be reproduced by running the `analyze_food_311.py` script located in the `scripts` directory. This script reads the cleaned dataset, computes the Pearson correlation coefficient between average 311 sanitary complaints and food inspection fail rates across ZIP codes, and generates a scatter plot visualizing the relationship.
+    * First, groupby ZIP code to calculate the average number of 311 sanitary complaints and the fail rate for food inspections. Then, use the `pearsonr` function from the `scipy.stats` module to compute the correlation coefficient and p-value.
+    * The plot was created using `matplotlib` library to visualize the relationship between average sanitary complaints and fail rates.
+    * The plot and result used in this findings is located in the `# RQ1 - sr_count and fail rate analysis` section of the `analyze_food_311.py` script.
+    * Specific output files include:
+        * `results/correlation_summary.csv`: Contains the correlation coefficient, p-value, and number of ZIP codes analyzed.
+        * `results/plots/fail_rate_vs_sr_count_scatter_labeled.png`: Scatter plot showing the relationship between average sanitary complaints and fail rates.
 
 2. Facility Type Sensitivity
+    * The analysis can be reproduced by running the `analyze_food_311.py` script located in the `scripts` directory. This script reads the cleaned dataset, computes the sensitivity of different facility types to 311 sanitary complaints, and generates a bar plot comparing fail rates across facility types.
+    * First, groupby facility type and ZIP code to calculate the average number of 311 sanitary complaints and the fail rate for food inspections. Then, compute the sensitivity by calculating the correlation of fail rates against average sanitary complaints for each facility type.
+    * The plot was created using `matplotlib` and `seaborn` libraries to visualize and compare the sensitivity of different facility types.
+    * The plot and result used in this findings can be found in the`RQ2 - facility type fail rate vs sr_count` section of the `analyze_food_311.py` script.
+    * Specific output files include:
+        * `results/facility_sr_sensitivity.csv`: Contains sensitivity metrics for each facility type.
+        * `results/plots/facility_type_fail_vs_sr_comparison.png`: Scatter plot comparing sensitivity between Average sanitary complaints and Fail rate across facility types using correlation.
 
 3. Sensitive ZIP Codes
+    * The analysis can be reproduced by running the `analyze_food_311.py` script located in the `scripts` directory. This script reads the cleaned dataset, identifies sensitive ZIP codes with significant increases in food inspection fail rates with increasing 311 sanitary complaints, and generates a scatter plot highlighting these ZIP codes.
+    * First, groupby ZIP code to calculate the average number of 311 sanitary complaints and the fail rate for food inspections. Then, identify sensitive ZIP codes based on a predefined sensitivity threshold.
+    * The plot was created using `matplotlib` library to visualize sensitive ZIP codes.
+    * The plot and result used in this findings is located in the `# RQ3 - Sensitive ZIP code analysis` section of the `analyze_food_311.py` script.
+    * Specific output files include:
+        * `results/sensitive_zip_summary.csv`: Contains sensitivity metrics for each ZIP code.
+        * `results/plots/sensitive_zips_highlighted.png`: Scatter plot highlighting sensitive ZIP codes.
 
 4. Top ZIP Codes by Average Sanitary Complaints
+    * The analysis can be reproduced by running the `analyze_food_311.py` script located in the `scripts` directory. This script reads the cleaned dataset, ranks ZIP codes by average 311 sanitary complaints count, and generates a bar plot of the top 15 ZIP codes.
+    * First, groupby ZIP code to calculate the average number of 311 sanitary complaints. Then, sort the ZIP codes by average complaints and select the top 15.
+    * The plot was created using `matplotlib` library to visualize the top ZIP codes.
+    * The plot and result used in this findings is located in the `RQ4 - Basic distribution and ranking (zip by sr_count)` section of the `analyze_food_311.py` script.
+    * Specific output files include:
+        * `results/zip_rank_by_sr_count.csv`: Contains average sanitary complaint counts for each ZIP code.
+        * `results/plots/zip_rank_by_sr_count_top15.png`: Bar plot of the top 15 ZIP codes by average sanitary complaints.
 
 5. Facility Type Fail Rates
+    * The analysis can be reproduced by running the `analyze_food_311.py` script located in the `scripts` directory. This script reads the cleaned dataset, calculates fail rates for different facility types, and generates a bar plot of the top 10 facility types by fail rate.
+    * First, groupby facility type to calculate the fail rate for food inspections. Then, sort the facility types by fail rate and select the top ones. We limtied to facility types with at least 50 inspections to ensure statistical significance.
+    * The plot was created using `matplotlib` library to visualize the fail rates of different facility types.
+    * The plot and result used in this findings can be found at `RQ5 - Sensitivity in facility type` section of the `analyze_food_311.py` script.
+    * Specific output files include:
+        * `results/facility_type_summary.csv`: Contains fail rates for each facility type.
+        * `results/plots/facility_fail_rate_top.png`: Bar plot of the top facility types by fail rate.
 
 
 ## References
