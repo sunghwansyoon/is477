@@ -102,6 +102,22 @@ We calculated the fail rates for different facility types. Restaurants had the h
 
 ![Alt text](results/plots/facility_fail_rate_top.png)
 
+Through each of our graphs we can conclude the 311 sanitary rates for each type of facility that was complained on along with the location of where the most complaints are with the help of zip codes. With this we wer able to align the zip codes of both datasets that had the most 311 sanitary complaints along with the Facilaty type fail rates. Through Figure 3 we were able to identify the top 75th percentile of zip codes that had a high fail rate and sanitary complaints. With the help of google maps and Chicago Public Schools locator we were able to identify the types of neighborhoods and the conditions. For example 60628 is the neighborhood Roseland, in the south side of Chicago. And if we continue finding the neighborhoods and where they are located in Chicago, we are seeing a correlation. For example:
+* 60628- Roseland (South Side)*
+* 60620 - Beverly View (South Side)
+* 60629 - West Law (South West Side)
+* 60617 - South Chicago (South Side)*
+* 60619 - East Chatham (South Side)
+* 60623 - Cicero/ Little Village (South Side)
+* 60639 - Northwest (Northwest side)
+* 60647 - Logan Square (North side)
+* 60636 - Englewood (South Side)*
+* 60651 - West Humboldt Park (West Side)*
+* 60624 - West Garfield Park (West Side)*
+* 60644 - Austin (West Side)*
+* 60625 - Ravenswood (North side)
+Now there is a common trend on how there are more violations and more 311 sanitation complaints in the south side of Chicago. With the City of Chicago pdf file of their “Chi BIZ Strong Grant Program” where it helps focus Chicago business and community area, shows the community areas with at least 65%  low or moderate income residents. 6 out of the 13 neighborhoods are on the list which are marked with a star. Now we assume that there may be a correlation between high failure rates and high sanitation complaints with low/ moderate income neighborhoods. But we would like to remind you that correlation does cause causation.
+
 
 ## Future Work
 About potential future work, we consider the followings:
