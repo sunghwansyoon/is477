@@ -55,9 +55,13 @@ The secondary data set contained various types of service requests, but we only 
 
 
 ## Data Quality
-Since we are conducting analysis with second-hand data, not collected by ourselves, we had to carefully assess the data quality before proceeding with the analysis. We identified several data quality issues in both datasets that needed to be addressed:
+The data was collected using the standardized procedure by the Chicago Department of Public Health’s (CDPH) Food Protection Program staff. While the author clearly states the descriptions of data elements in a separate PDF document, no technical terms or detailed data collection methods are mentioned in the documentation. Regarding data quality issues and limitations, the admin warns of potential duplicate inspection records, which may require an appropriate precaution in data analysis. We spot some inconsistencies in the update frequency – metadata states the dataset is updated daily, while the PDF document for descriptions of the data elements states that the datasets are updated every Friday.
 
-1. Missing Values: Both datasets had missing values in critical columns such as "Zip" in the food inspection dataset and "Zip_Code" in the 311 service requests dataset. We handled these missing values by removing records with missing ZIP codes, as they were essential for our analysis.
+For our documentation we were also using Food Inspections data so we were also able identify the same key problems from the previous problem. But As for our other dataset we had used the 311 service request which is also found on Chicago Data Portal. They explain their data collection by putting calls and service requests into the dataset and updating regularly. The features are relatively understandable as some describe the location of where the 311 service request would like to be at but there are also other unique features such as “CREATED_DEPARTMENT” where it defines which department created the service request.“OWNER_DEPARTMENT” where it describes “the department with initial responsibility for the service request.” 
+
+However, data collection still lacks full transparency: the documentation does not thoroughly describe how requests are triaged, whether certain request types are prioritized, or how duplicates are merged. There are also notable data quality issues including missing values in address, ZIP code, created_department, and owner_department. These missing fields may reflect privacy redactions, citizen reporting errors, or back-end workflow gaps, but the documentation does not clarify this.
+Both datasets clearly list update frequency—Food Inspections updates automatically and 311 updates daily—but they do not describe data latency, archival processes, or whether older records are revised after publication. Overall, while both datasets provide surface-level metadata, they lack deeper explanations needed for fully transparent, reproducible analysis.
+
 
 ## Findings
 ### 1. Overall Correlation Analysis
