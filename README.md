@@ -155,9 +155,9 @@ A stronger computing environment would therefore enable a much more ambitious an
 
 Results can be reproduced by `Snakefile` located in the root directory as long as cleaned datasets are downloaded, located at `data/cleaned` directory.
 
-Due to the techincal limitation mentioned in the `Future Work` section, we could not process the entire datasets. Instead, we sampled a subset of the data for analysis. Also, we could not include data collection steps in the Snakefile automation because the City of Chicago data portal updates the datasets daily, often changing the past data entries. Thus, to ensure reproducibility, we have provided the raw datasets we used in the `data/raw` directory.
+Due to the techincal limitation mentioned in the `Future Work` section, we could not process the entire datasets. Instead, we sampled a subset of the data for analysis. Also, we could not include data collection steps in the Snakefile automation because the City of Chicago data portal updates the datasets daily, often changing the past data entries as well. Furthermore, our data collection script gives up after a certain number of rows. Therefore, to ensure reproducibility, we have provided the raw datasets used in our analysis in the `data/raw` directory.
 
-The integration step was included in the Snakefile previously, but we used `OpenRefine` to clean the integrated dataset. Therefore, we did not include the integration step in the Snakefile automation. 
+The integration step was included in the Snakefile previously, but we used `OpenRefine` to clean the integrated dataset, which diminishes the purpose of automating the integration step. Thus, we have removed the integration step from the Snakefile.
 
 If you want to reproduce the entire workflow from the scratch, please follow the steps below to manually prepare the datasets:
 1. Head to `data/raw` of [our directory](https://github.com/sunghwansyoon/is477/tree/main/data/raw) and download the `Food_Inspections_raw.csv` and `311_Service_Requests_sanitary_raw.csv` files.
@@ -165,7 +165,7 @@ If you want to reproduce the entire workflow from the scratch, please follow the
 3. In `scripts` directory, create and run a python script for data integration. You can refer to our `integrate.py` or `integration.ipynb` files for the implementation.
 4. Our integrated dataset was cleaned using OpenRefine. You can follow the cleaning steps in our `history.json` files located in the `data/cleaned` directory. The cleaned dataset is saved as `food_inspections_with_311_by_zip_cleaned.csv` in the same directory.
 
-Once you have the cleaned dataset, you can run the `Snakefile` in the root directory using `snakemake -j1` command to reproduce all the analysis and visualizations, while ensuring that cleaned datasets are located in the `data/cleaned` directory. 
+Once you have the cleaned dataset, you can run the `Snakefile` in the root directory using `snakemake -j1` command to reproduce all the analysis and visualizations, while ensuring that cleaned datasets are located in the `data/cleaned` directory and have scripts downloaded and saved in the `scripts` directory.
 
 Or, you can run each analysis script located in the `scripts` directory to reproduce specific findings. You will need the cleaned dataset located in the `data/cleaned` directory. Below are the steps to reproduce each finding:
 
