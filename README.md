@@ -165,7 +165,7 @@ If you want to reproduce the entire workflow from the scratch, please follow the
 3. In `scripts` directory, create and run a python script for data integration. You can refer to our `integrate.py` or `integration.ipynb` files for the implementation.
 4. Our integrated dataset was cleaned using OpenRefine. You can follow the cleaning steps in our `history.json` files located in the `data/cleaned` directory. The cleaned dataset is saved as `food_inspections_with_311_by_zip_cleaned.csv` in the same directory.
 
-Once you have the cleaned dataset, you can run the `Snakefile` in the root directory using `snakemake -j1` command to reproduce all the analysis and visualizations. 
+Once you have the cleaned dataset, you can run the `Snakefile` in the root directory using `snakemake -j1` command to reproduce all the analysis and visualizations, while ensuring that cleaned datasets are located in the `data/cleaned` directory. 
 
 Or, you can run each analysis script located in the `scripts` directory to reproduce specific findings. You will need the cleaned dataset located in the `data/cleaned` directory. Below are the steps to reproduce each finding:
 
