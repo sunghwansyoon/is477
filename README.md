@@ -165,31 +165,31 @@ root/
 │   └── cleaned/
 │   ├── integrated/
 │   └── raw/
-└── results/
-    ├── correlation_summary.csv
-    ├── data_hash_manifest.csv
-    ├── facility_sr_sensitivity.csv
-    ├── facility_type_summary.csv
-    ├── sensitive_zip_summary.csv
-    ├── zip_fail_vs_sr.csv
-    ├── zip_rank_by_sr_count.csv
-    ├── zip_summary_for_mapping.csv
-    └── plots/
-        ├── facility_fail_rate_top.png
-        ├── facility_type_fail_vs_sr_comparison.png
-        ├── fail_rate_vs_sr_count_scatter_labeled.png
-        ├── fail_rate_vs_sr_count_scatter.png
-        ├── sensitive_zips_highlighted.png
-        └── zip_rank_by_sr_count_top15.png
+├── results/
+│   ├── correlation_summary.csv
+│   ├── data_hash_manifest.csv
+│   ├── facility_sr_sensitivity.csv
+│   ├── facility_type_summary.csv
+│   ├── sensitive_zip_summary.csv
+│   ├── zip_fail_vs_sr.csv
+│   ├── zip_rank_by_sr_count.csv
+│   ├── zip_summary_for_mapping.csv
+│   └── plots/
+│       ├── facility_fail_rate_top.png
+│       ├── facility_type_fail_vs_sr_comparison.png
+│       ├── fail_rate_vs_sr_count_scatter_labeled.png
+│       ├── fail_rate_vs_sr_count_scatter.png
+│       ├── sensitive_zips_highlighted.png
+│       └── zip_rank_by_sr_count_top15.png
 ├── scripts/
 ...
 ```
 
-Results can be reproduced by `Snakefile` located in the root directory in GitHub depository as long as cleaned datasets are downloaded, located at `is477-project/input-data/data/cleaned` directory of the Box.
+Results can be reproduced by `Snakefile` located in the root directory in [GitHub depository](https://github.com/sunghwansyoon/is477) as long as cleaned datasets and `scripts` folders are downloaded and located as directed above.
 
 Due to the techincal limitation mentioned in the `Future Work` section, we could not process the entire datasets. Instead, we sampled a subset of the data for analysis. Also, we could not include data collection steps in the Snakefile automation because the City of Chicago data portal updates the datasets daily, often changing the past data entries as well. Furthermore, our data collection script gives up after a certain number of rows. Therefore, to ensure reproducibility, we have provided the raw datasets used in our analysis in the `is477-project/input-data/data/raw` directory.
 
-The integration step was included in the Snakefile previously, but we used `OpenRefine` to clean the integrated dataset, which diminishes the purpose of automating the integration step. Thus, we have removed the integration step from the Snakefile.
+The integration step was included in the Snakefile previously, but we used `OpenRefine` to clean the integrated dataset, which diminishes the purpose of automating the integration step. Thus, we have removed the integration step from the Snakefile. To run the integration step, locate the `integrate.py` or `integration.ipynb` files in the `scripts` directory. To run `integrate.py`, use the command in the terminal: `python3 scripts/integrate.py` in root directory or `python3 integrate.py` in `scripts` directory. Or, you can run the `integration.ipynb` in `scripts` directory.
 
 If you want to reproduce the entire workflow from the scratch, please follow the steps below to manually prepare the datasets:
 1. Head to `data/raw` of [our directory](https://github.com/sunghwansyoon/is477/tree/main/data/raw) or `is477-project/input-data/` of [Box directory](https://uofi.box.com/s/hyx2r4yp4p7owca7goz5lq32vdxdqva5) and download the `Food_Inspections_raw.csv` and `311_Service_Requests_sanitary_raw.csv` files.
