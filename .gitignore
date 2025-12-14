@@ -1,3 +1,8 @@
 <venv_dir>/
 __pycache__
 .ipynb_checkpoints/
+chicago_api_key.txt
+.env
+311_Service_Requests_sanitary_raw2.csv
+Food_Inspections_raw2.csv
+collect.py

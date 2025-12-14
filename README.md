@@ -152,6 +152,23 @@ A stronger computing environment would therefore enable a much more ambitious an
 
 
 ## Reproducing
+
+Results can be reproduced by `Snakefile` located in the root directory as long as cleaned datasets are downloaded, located at `data/cleaned` directory.
+
+Due to the techincal limitation mentioned in the `Future Work` section, we could not process the entire datasets. Instead, we sampled a subset of the data for analysis. Also, we could not include data collection steps in the Snakefile automation because the City of Chicago data portal updates the datasets daily, often changing the past data entries. Thus, to ensure reproducibility, we have provided the raw datasets we used in the `data/raw` directory.
+
+The integration step was included in the Snakefile previously, but we used `OpenRefine` to clean the integrated dataset. Therefore, we did not include the integration step in the Snakefile automation. 
+
+If you want to reproduce the entire workflow from the scratch, please follow the steps below to manually prepare the datasets:
+1. Head to `data/raw` of [our directory](https://github.com/sunghwansyoon/is477/tree/main/data/raw) and download the `Food_Inspections_raw.csv` and `311_Service_Requests_sanitary_raw.csv` files.
+2. Return to the root directory and create `scripts` directory if not exists.
+3. In `scripts` directory, create and run a python script for data integration. You can refer to our `integrate.py` or `integration.ipynb` files for the implementation.
+4. Our integrated dataset was cleaned using OpenRefine. You can follow the cleaning steps in our `history.json` files located in the `data/cleaned` directory. The cleaned dataset is saved as `food_inspections_with_311_by_zip_cleaned.csv` in the same directory.
+
+Once you have the cleaned dataset, you can run the `Snakefile` in the root directory using `snakemake -j1` command to reproduce all the analysis and visualizations. 
+
+Or, you can run each analysis script located in the `scripts` directory to reproduce specific findings. You will need the cleaned dataset located in the `data/cleaned` directory. Below are the steps to reproduce each finding:
+
 1. Overall Correlation Analysis
     * The analysis can be reproduced by running the `analyze_food_311.py` script located in the `scripts` directory. This script reads the cleaned dataset, computes the Pearson correlation coefficient between average 311 sanitary complaints and food inspection fail rates across ZIP codes, and generates a scatter plot visualizing the relationship.
     * First, groupby ZIP code to calculate the average number of 311 sanitary complaints and the fail rate for food inspections. Then, use the `pearsonr` function from the `scipy.stats` module to compute the correlation coefficient and p-value.
