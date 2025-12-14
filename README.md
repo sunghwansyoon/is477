@@ -153,14 +153,46 @@ A stronger computing environment would therefore enable a much more ambitious an
 
 ## Reproducing
 
-Results can be reproduced by `Snakefile` located in the root directory as long as cleaned datasets are downloaded, located at `data/cleaned` directory.
+- Box: https://uofi.box.com/s/hyx2r4yp4p7owca7goz5lq32vdxdqva5
+- Input Files: https://uofi.box.com/s/4dxigul392dcvjx6qnhgjkjt9t2nd692
+- Output Files: https://uofi.box.com/s/9x871hqocqyncveryqj5r24r26jg3w75
 
-Due to the techincal limitation mentioned in the `Future Work` section, we could not process the entire datasets. Instead, we sampled a subset of the data for analysis. Also, we could not include data collection steps in the Snakefile automation because the City of Chicago data portal updates the datasets daily, often changing the past data entries as well. Furthermore, our data collection script gives up after a certain number of rows. Therefore, to ensure reproducibility, we have provided the raw datasets used in our analysis in the `data/raw` directory.
+When you download from Box, download the `data` folder in `input-data` directory and `results` folder in `output-data` directory, and store them in the root directory. The folders should be located as below:
+
+```
+root/
+├── data/
+│   └── cleaned/
+│   ├── integrated/
+│   └── raw/
+└── results/
+    ├── correlation_summary.csv
+    ├── data_hash_manifest.csv
+    ├── facility_sr_sensitivity.csv
+    ├── facility_type_summary.csv
+    ├── sensitive_zip_summary.csv
+    ├── zip_fail_vs_sr.csv
+    ├── zip_rank_by_sr_count.csv
+    ├── zip_summary_for_mapping.csv
+    └── plots/
+        ├── facility_fail_rate_top.png
+        ├── facility_type_fail_vs_sr_comparison.png
+        ├── fail_rate_vs_sr_count_scatter_labeled.png
+        ├── fail_rate_vs_sr_count_scatter.png
+        ├── sensitive_zips_highlighted.png
+        └── zip_rank_by_sr_count_top15.png
+├── scripts/
+...
+```
+
+Results can be reproduced by `Snakefile` located in the root directory in GitHub depository as long as cleaned datasets are downloaded, located at `is477-project/input-data/data/cleaned` directory of the Box.
+
+Due to the techincal limitation mentioned in the `Future Work` section, we could not process the entire datasets. Instead, we sampled a subset of the data for analysis. Also, we could not include data collection steps in the Snakefile automation because the City of Chicago data portal updates the datasets daily, often changing the past data entries as well. Furthermore, our data collection script gives up after a certain number of rows. Therefore, to ensure reproducibility, we have provided the raw datasets used in our analysis in the `is477-project/input-data/data/raw` directory.
 
 The integration step was included in the Snakefile previously, but we used `OpenRefine` to clean the integrated dataset, which diminishes the purpose of automating the integration step. Thus, we have removed the integration step from the Snakefile.
 
 If you want to reproduce the entire workflow from the scratch, please follow the steps below to manually prepare the datasets:
-1. Head to `data/raw` of [our directory](https://github.com/sunghwansyoon/is477/tree/main/data/raw) and download the `Food_Inspections_raw.csv` and `311_Service_Requests_sanitary_raw.csv` files.
+1. Head to `data/raw` of [our directory](https://github.com/sunghwansyoon/is477/tree/main/data/raw) or `is477-project/input-data/` of [Box directory](https://uofi.box.com/s/hyx2r4yp4p7owca7goz5lq32vdxdqva5) and download the `Food_Inspections_raw.csv` and `311_Service_Requests_sanitary_raw.csv` files.
 2. Return to the root directory and create `scripts` directory if not exists.
 3. In `scripts` directory, create and run a python script for data integration. You can refer to our `integrate.py` or `integration.ipynb` files for the implementation.
 4. Our integrated dataset was cleaned using OpenRefine. You can follow the cleaning steps in our `history.json` files located in the `data/cleaned` directory. The cleaned dataset is saved as `food_inspections_with_311_by_zip_cleaned.csv` in the same directory.
